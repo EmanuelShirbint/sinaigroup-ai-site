@@ -773,3 +773,40 @@ html:not(.is-home){scroll-snap-type:none}
    Home figures never received .in and stayed at opacity 0 on the live site.
    Specificity (1,2,0) beats .js-reveal .rv (0,2,0). Added 2026-09-03. */
 #home .dfig.rv,#architecture .dfig.rv,#ai-platform .dfig.rv{opacity:1;transform:none}
+
+/* ============================================================================
+   Domain pages (/healthcare, /financial-services, /critical-infrastructure)
+   Added 2026-09-03. Additive only: every rule is scoped to .dpage or to a
+   class that exists nowhere else, so no existing page can be affected.
+   Deliberately NOT using .rv — these pages must render without JavaScript.
+   ========================================================================= */
+.dpage .hdomains{margin-top:20px;font-family:'Archivo','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:1.05rem;font-weight:700;color:var(--gold);letter-spacing:-.01em}
+.dpage .hlead{max-width:720px;margin-top:18px;font-size:1.05rem;line-height:1.65;color:var(--grey)}
+.dpage .hactions{margin-top:34px;display:flex;gap:14px;flex-wrap:wrap}
+.dpage .dk{display:block;font-family:'Archivo','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
+.dpage .dgo{display:block;margin-top:20px;font-family:'Archivo','Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:700;font-size:.9rem;color:var(--gold)}
+.dpage .dh2{font-size:clamp(2.2rem,5.5vw,4.2rem);margin-top:16px;line-height:1.02}
+.dpage .dsub{font-size:1.05rem;line-height:1.65;color:var(--grey);max-width:760px;margin-top:20px}
+.dpage .evnote{max-width:760px;margin-top:16px;font-size:.92rem;line-height:1.6;color:var(--faint)}
+.dpage .qgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:0 48px;margin-top:38px}
+.dpage .disgrid,.dpage .ecogrid{display:grid;grid-template-columns:repeat(3,1fr);gap:0 48px;margin-top:38px}
+.dpage .ogrid{display:grid;grid-template-columns:repeat(2,1fr);gap:0 48px;margin-top:38px}
+.dpage .qcard,.dpage .discard,.dpage .ecocard,.dpage .ocard{display:block;padding:26px 0;border-top:2px solid var(--ink);background:transparent;text-decoration:none;color:inherit}
+.dpage .qcard h3,.dpage .discard h3,.dpage .ecocard h3,.dpage .ocard h3{font-family:'Archivo','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:1.3rem;font-weight:800;letter-spacing:-.01em;margin:12px 0 0}
+.dpage .ocard h3{font-size:1.45rem}
+.dpage .qcard p,.dpage .discard p,.dpage .ecocard p,.dpage .ocard p{margin-top:12px;line-height:1.6;color:var(--grey)}
+.dpage .ocard:hover h3,.dpage .ocard:focus-visible h3{color:var(--gold)}
+.dpage .decbox{margin-top:38px;display:grid;grid-template-columns:320px 1fr;gap:0 48px;align-items:start}
+.dpage .deccard{padding:26px 0}
+.dpage .deccard.dark{background:var(--ink);color:var(--bg);border:0;border-radius:10px;padding:22px 24px}
+.dpage .deccard.dark h3{font-family:'Archivo','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:1.3rem;font-weight:800;margin:0}
+.dpage .deccard .mono{margin-top:10px;font-family:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.82rem;opacity:.75}
+.dpage .decnote{margin:0;font-size:1.05rem;line-height:1.65;color:var(--grey);max-width:620px}
+.dpage .cta .dh2{max-width:900px}
+@media(max-width:1000px){.dpage .disgrid,.dpage .ecogrid{grid-template-columns:1fr;gap:0}}
+@media(max-width:900px){.dpage .qgrid,.dpage .ogrid{grid-template-columns:1fr;gap:0}
+  .dpage .decbox{grid-template-columns:1fr;gap:22px 0}}
+@media(max-width:700px){.dpage .phead{padding:var(--mobile-hero-top-gap) 0 60px}
+  .dpage .section{padding:64px 0}}
+/* "infrastructure." overflowed its box by 13px at 360px — measured, then bounded. */
+.dpage .phead h1{font-size:clamp(2.4rem,8.5vw,7rem);overflow-wrap:break-word;max-width:100%}
