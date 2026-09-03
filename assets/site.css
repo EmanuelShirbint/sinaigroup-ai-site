@@ -768,3 +768,8 @@ html:not(.is-home){scroll-snap-type:none}
 #home .clinks{margin-top:18px;display:flex;flex-wrap:wrap;gap:10px 26px}
 #home .clinks a{font-family:'Archivo','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
 #home .clinks a:hover{color:var(--ink)}
+
+/* Diagram figures must never depend on the reveal observer — two of the three
+   Home figures never received .in and stayed at opacity 0 on the live site.
+   Specificity (1,2,0) beats .js-reveal .rv (0,2,0). Added 2026-09-03. */
+#home .dfig.rv,#architecture .dfig.rv,#ai-platform .dfig.rv{opacity:1;transform:none}
