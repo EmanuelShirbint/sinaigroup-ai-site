@@ -810,3 +810,14 @@ html:not(.is-home){scroll-snap-type:none}
   .dpage .section{padding:64px 0}}
 /* "infrastructure." overflowed its box by 13px at 360px — measured, then bounded. */
 .dpage .phead h1{font-size:clamp(2.4rem,8.5vw,7rem);overflow-wrap:break-word;max-width:100%}
+
+/* Home hero: the three domains set in the headline face, one size step down,
+   sized to fill the 1176px content column exactly.
+   Measured, not guessed: the string in Anton at 100px is 2277.08px wide, so
+   fill size = column / 22.7708 -> 51.6px at the 1176px cap, and
+   (100vw - 64px) / 22.7708 = 4.3915vw - 2.81px while the column is fluid.
+   Floors at 28px below ~700px so it wraps instead of turning into a hairline. */
+#home .hdomains{font-family:'AntonLocal','Anton',sans-serif;font-weight:400;
+  text-transform:uppercase;letter-spacing:.005em;line-height:.95;
+  font-size:clamp(28px,calc(4.3915vw - 2.81px),51.6px);
+  color:var(--gold);margin-top:26px;max-width:100%;overflow-wrap:break-word}
