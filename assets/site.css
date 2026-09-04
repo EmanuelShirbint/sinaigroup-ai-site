@@ -821,3 +821,15 @@ html:not(.is-home){scroll-snap-type:none}
   text-transform:uppercase;letter-spacing:.005em;line-height:.95;
   font-size:clamp(28px,calc(4.3915vw - 2.81px),51.6px);
   color:var(--gold);margin-top:26px;max-width:100%;overflow-wrap:break-word}
+
+/* Uppercase hyphen lift.
+   Neither Anton nor Archivo ships the OpenType 'case' feature, so a hyphen
+   drawn for lowercase sits low in an all-caps setting. Amounts measured from
+   the fonts themselves:
+     Anton   upm 2048 - hyphen centre 625, cap centre 880  -> 255/2048 = .1245em
+     Archivo upm 1000 - hyphen centre 272, cap centre 344  ->  72/1000 = .0710em
+   position:relative shifts the glyph without touching layout or line breaking. */
+.uh{position:relative;top:-.1245em}
+h3.rtitle .uh,#home .dcard h3 .uh,
+.dpage .qcard h3 .uh,.dpage .discard h3 .uh,
+.dpage .ecocard h3 .uh,.dpage .ocard h3 .uh{top:-.071em}
