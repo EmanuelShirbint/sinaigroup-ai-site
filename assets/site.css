@@ -864,3 +864,6 @@ h3.rtitle .uh,#home .dcard h3 .uh,
 /* when a badge closes a paragraph it sits on its own line, not mid-sentence */
 p > .mb:last-child,.rsub > .mb:last-child{display:flex;width:max-content;max-width:100%;margin-top:16px}
 @media(max-width:520px){.mb{font-size:10px;letter-spacing:.12em;padding:5px 8px;white-space:normal}}
+
+/* R&D: the last row of each record list drops its rule - the section rule below it closes the list */
+#rnd .cases>.case:last-child,#rnd .srows>.srow:last-child{border-bottom:0}
