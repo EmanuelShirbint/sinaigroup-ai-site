@@ -833,3 +833,6 @@ html:not(.is-home){scroll-snap-type:none}
 h3.rtitle .uh,#home .dcard h3 .uh,
 .dpage .qcard h3 .uh,.dpage .discard h3 .uh,
 .dpage .ecocard h3 .uh,.dpage .ocard h3 .uh{top:-.071em}
+/* Home hero: the middle domain set in ink so the three read as a rhythm
+   rather than one solid green block. */
+#home .hdomains .ink{color:var(--ink)}
