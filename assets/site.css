@@ -836,3 +836,31 @@ h3.rtitle .uh,#home .dcard h3 .uh,
 /* Home hero: the middle domain set in ink so the three read as a rhythm
    rather than one solid green block. */
 #home .hdomains .ink{color:var(--ink)}
+
+/* ============================================================================
+   Maturity badges — Master Brief v2, Block A. Added 2026-09-04.
+   Vocabulary: PRODUCTION PATTERN · REFERENCE ARCHITECTURE · RESEARCH-BACKED
+   METHOD · EXPERIMENTAL · ROADMAP.
+   Built from tokens already in this release — --ink, --gold, --grey, --bg — and
+   from the existing label grammar (.dk: Archivo 700, 11px, .14em, uppercase).
+   Square corners and a 2px edge to match the site's rules; no pills, no
+   gradients, no new colour. Meaning is carried by weight and line style:
+     solid ink   = built           outlined ink  = designed, not built
+     green       = research-backed grey          = experimental
+     dashed grey = not built yet
+   ========================================================================= */
+.mb{display:inline-flex;align-items:center;gap:8px;vertical-align:baseline;
+  font-family:'Archivo','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  line-height:1;padding:6px 10px;border:2px solid var(--ink);color:var(--ink);
+  background:transparent;border-radius:0;white-space:nowrap}
+.mb::before{content:"";width:7px;height:7px;background:currentColor;flex:0 0 auto}
+.mb-prod{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.mb-ref{border-color:var(--ink);color:var(--ink)}
+.mb-research{border-color:var(--gold);color:var(--gold)}
+.mb-exp{border-color:var(--grey);color:var(--grey)}
+.mb-road{border-style:dashed;border-color:var(--grey);color:var(--grey)}
+.mb-road::before{background:transparent;border:2px solid currentColor;width:5px;height:5px}
+/* when a badge closes a paragraph it sits on its own line, not mid-sentence */
+p > .mb:last-child,.rsub > .mb:last-child{display:flex;width:max-content;max-width:100%;margin-top:16px}
+@media(max-width:520px){.mb{font-size:10px;letter-spacing:.12em;padding:5px 8px;white-space:normal}}
