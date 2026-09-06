@@ -566,10 +566,10 @@ html:not(.is-home){scroll-snap-type:none}
 #rnd .case:hover .plinks a{color:var(--gold2)}
 #rnd .case:hover .plinks a:hover{border-bottom-color:var(--gold2)}
 #rnd .profstrip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:0;margin-top:30px;border-top:2px solid var(--ink)}
-#rnd .prof{display:block;padding:26px 24px 26px 0;border-bottom:2px solid var(--ink);
+  gap:0;margin-top:30px}
+#rnd .prof{display:block;padding:26px 24px 26px 0;
   text-decoration:none;color:inherit;transition:.25s}
-#rnd .prof+.prof{border-left:2px solid var(--ink);padding-left:24px}
+#rnd .prof+.prof{padding-left:24px}
 #rnd .prof:hover{background:var(--ink);color:var(--bg);padding-left:24px;padding-right:24px}
 #rnd .prof .pk{display:block;font-family:'Archivo',sans-serif;font-weight:700;font-size:.7rem;
   letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
