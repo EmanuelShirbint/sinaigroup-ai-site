@@ -51,10 +51,18 @@ pumping station. What changes is the consequence, not the test.</p>
 </div></section>
 
 <section class="section"><div class="wrap">
+<span class="tag">Reference scenario</span>
+<h2 class="dh2">One decision, followed step by step</h2>
+<div style="margin-top:14px"><span class="mb mb-ref"><span class="sr">Status: </span>Reference architecture</span></div>
+<p class="sub dsub">On the <a href="../#ai-platform">AI Platform</a> page, a pumping-station decision is followed step by step &mdash; from the first reading to the record that outlives the decision.</p>
+<p class="evnote">Reference scenario &mdash; illustrative, not a deployment.</p>
+</div></section>
+
+<section class="section"><div class="wrap">
 <span class="tag">One set of questions</span>
 <h2 class="dh2">Four questions before<br><span class="gold">anything acts</span></h2>
 <p class="sub dsub">Every governed decision passes the same test, in this domain as in the other two.</p>
-<div class="qgrid"><div class="qcard"><span class="dk">Question 01</span><h3>Verified premises</h3><p>Are the premises verified or assumed?</p></div><div class="qcard"><span class="dk">Question 02</span><h3>Adequate mechanism</h3><p>Does it hold against the domain&rsquo;s own mechanism?</p></div><div class="qcard"><span class="dk">Question 03</span><h3>Counter<span class="uh">-</span>evidence</h3><p>What evidence would defeat it?</p></div><div class="qcard"><span class="dk">Question 04</span><h3>Acceptance authority</h3><p>Who signs before anything acts?</p></div></div>
+<div class="qgrid"><div class="qcard"><span class="dk">Question 01</span><h3>Verified premises</h3><p>Are the premises verified or assumed?</p><p>In critical infrastructure: is a sensor reading being trusted without its source and timestamp, or is an asset state being inferred from an outdated inspection?</p></div><div class="qcard"><span class="dk">Question 02</span><h3>Adequate mechanism</h3><p>Does it hold against the domain&rsquo;s own mechanism?</p><p>In critical infrastructure: does the recommendation hold against the hydraulics, the grid or the process, not only against plausibility?</p></div><div class="qcard"><span class="dk">Question 03</span><h3>Counter<span class="uh">-</span>evidence</h3><p>What evidence would defeat it?</p><p>In critical infrastructure: which reading, if it arrived, would overturn the recommendation?</p></div><div class="qcard"><span class="dk">Question 04</span><h3>Acceptance authority</h3><p>Who signs before anything acts?</p><p>In critical infrastructure: the operator on duty signs &mdash; authority is defined by role, not by name &mdash; and the record shows the evidence, the model and the human decision.</p></div></div>
 </div></section>
 
 <section class="section"><div class="wrap">
@@ -65,8 +73,19 @@ pumping station. What changes is the consequence, not the test.</p>
 </div></section>
 
 <section class="section"><div class="wrap">
+<span class="tag">Reference architecture</span>
+<h2 class="dh2">Ten-layer architecture for<br><span class="gold">connected physical infrastructure</span></h2>
+<div class="prose" style="margin-top:26px">
+<p>The Critical Infrastructure Reference Architecture describes ten blocks for connected physical infrastructure &mdash; eight functional layers from devices on the ground to AI in the cloud, and two cross-cutting planes for security and integration.</p>
+<p>This is a reference architecture, not a deployed SINAIGROUP-AI system and not the architecture of the company as a whole. It expresses the company-wide governed-decision model through those ten blocks.</p>
+<p>The full ten-layer description, layer boards, sub-sector applications and attributed prior-experience entries are available on the Architecture &amp; Infrastructure page.</p>
+</div>
+</div></section>
+
+<section class="section"><div class="wrap">
 <span class="tag">Prior experience</span>
 <h2 class="dh2">Where this has<br><span class="gold">been applied.</span></h2>
+<div style="margin-top:14px"><span class="mb mb-founder"><span class="sr">Status: </span>Prior founder experience</span></div>
 <p class="sub dsub">Members of our team have delivered AI-driven predictive maintenance at a national water utility and a nationwide SCADA modernisation for real-time operations, in roles held before SINAIGROUP-AI was formed.</p>
 <p class="evnote">These are shown as professional background, not as corporate deliveries by SINAIGROUP-AI. Client names are withheld for confidentiality, and no outcome figures are published without the client&rsquo;s written agreement.</p>
 <p class="hactions" style="margin-top:26px"><a class="btn btn-o" href="../#architecture">See the architecture &rarr;</a></p>

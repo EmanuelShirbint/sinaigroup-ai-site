@@ -51,10 +51,26 @@ pumping station. What changes is the consequence, not the test.</p>
 </div></section>
 
 <section class="section"><div class="wrap">
+<span class="tag">The path</span>
+<h2 class="dh2">One clinical decision,<br><span class="gold">step by step</span></h2>
+<div style="margin-top:14px"><span class="mb mb-ref"><span class="sr">Status: </span>Reference architecture</span></div>
+<p class="sub dsub">The same path every governed decision takes, shown here in a clinical context.</p>
+<div class="prose" style="margin-top:26px">
+<p>Domain data may include clinical records, imaging, monitoring signals and other evidence used in clinical decision-making.</p>
+<p>A model proposes &mdash; a stratification, a flag, a reading of monitoring data &mdash; and states what the proposal rests on.</p>
+<p>The governed decision layer establishes what the proposal rests on, tests it against the relevant clinical mechanism rather than plausibility alone, and records what evidence would defeat it.</p>
+<p>An identified clinical authority decides whether the proposal may become action. Model confidence does not confer that authority.</p>
+<p>In this reference path, action may proceed only within the authorised boundary.</p>
+<p>The outcome is evaluated against criteria agreed beforehand &mdash; including the cases where nothing changed.</p>
+</div>
+<p class="evnote">This is a reference path, not a description of a deployed clinical system.</p>
+</div></section>
+
+<section class="section"><div class="wrap">
 <span class="tag">One set of questions</span>
 <h2 class="dh2">Four questions before<br><span class="gold">anything acts</span></h2>
 <p class="sub dsub">Every governed decision passes the same test, in this domain as in the other two.</p>
-<div class="qgrid"><div class="qcard"><span class="dk">Question 01</span><h3>Verified premises</h3><p>Are the premises verified or assumed?</p></div><div class="qcard"><span class="dk">Question 02</span><h3>Adequate mechanism</h3><p>Does it hold against the domain&rsquo;s own mechanism?</p></div><div class="qcard"><span class="dk">Question 03</span><h3>Counter<span class="uh">-</span>evidence</h3><p>What evidence would defeat it?</p></div><div class="qcard"><span class="dk">Question 04</span><h3>Acceptance authority</h3><p>Who signs before anything acts?</p></div></div>
+<div class="qgrid"><div class="qcard"><span class="dk">Question 01</span><h3>Verified premises</h3><p>Are the premises verified or assumed?</p><p>In healthcare: are the clinical data and patient history complete, current and verified &mdash; or are missing facts being treated as known?</p></div><div class="qcard"><span class="dk">Question 02</span><h3>Adequate mechanism</h3><p>Does it hold against the domain&rsquo;s own mechanism?</p><p>In healthcare: does the recommendation hold against the relevant clinical mechanism, not merely against a fluent explanation?</p></div><div class="qcard"><span class="dk">Question 03</span><h3>Counter<span class="uh">-</span>evidence</h3><p>What evidence would defeat it?</p><p>In healthcare: what finding would overturn the recommendation &mdash; and has that counter-evidence been actively sought?</p></div><div class="qcard"><span class="dk">Question 04</span><h3>Acceptance authority</h3><p>Who signs before anything acts?</p><p>In healthcare: who is the identified clinical authority that accepts the decision &mdash; and does the record show what was known at the time?</p></div></div>
 </div></section>
 
 <section class="section"><div class="wrap">
@@ -65,10 +81,28 @@ pumping station. What changes is the consequence, not the test.</p>
 </div></section>
 
 <section class="section"><div class="wrap">
+<span class="tag">Current offering</span>
+<h2 class="dh2">What we can design<br><span class="gold">and build here</span></h2>
+<div class="prose" style="margin-top:26px">
+<p>In healthcare, we design and build the governed decision layer on top of the systems and data infrastructure an organisation already trusts &mdash; with provenance, acceptance authority and evaluation &mdash; without asking it to replace them.</p>
+<p>Within that layer, a model's proposal is grounded, tested against counter-evidence and presented to an identified clinical authority before any high-stakes action is taken.</p>
+<p>Our role is to design and build the architecture and governance around the decision &mdash; not to diagnose, treat or assume clinical authority. Clinical decisions remain with the authorised clinician and institution.</p>
+</div>
+</div></section>
+
+<section class="section"><div class="wrap">
 <span class="tag">Evidence</span>
 <h2 class="dh2">Research<span class="uh">-</span>led.<br><span class="gold">Transparently documented.</span></h2>
-<p class="sub dsub">Our governed architecture is informed by peer-reviewed clinical research and by preprints on governed AI, agent safety and digital twins, led or co-authored by our CTO. Preprints document active research &mdash; they are not peer-reviewed validation of a product.</p>
-<p class="evnote">Where a founder&rsquo;s experience predates SINAIGROUP-AI, it is presented as professional or research experience rather than as a company delivery.</p>
+<div class="prose" style="margin-top:26px">
+<div style="margin-top:14px"><span class="mb mb-peer"><span class="sr">Status: </span>Peer-reviewed research</span></div>
+<p>Four peer-reviewed journal articles co-authored by our CTO were produced within the authors&rsquo; own institutions at the time, before and independently of SINAIGROUP-AI. They cover brain-volume change in primary-progressive multiple sclerosis, a finger-dexterity biosensing application, and two studies of COVID-19 vaccination in patients with multiple sclerosis.</p>
+<div style="margin-top:14px"><span class="mb mb-preprint"><span class="sr">Status: </span>Preprint</span></div>
+<p>Two preprints on medical digital twins and one on human digital twins develop the governance principles used here. Across them, model confidence is separated from authority to act, and inferred attributes are required to remain contestable.</p>
+<p>Preprints document active research. They are not peer-reviewed validation of a product, and none of these records reports a clinical deployment.</p>
+</div>
+<div style="margin-top:14px"><span class="mb mb-founder"><span class="sr">Status: </span>Prior founder experience</span></div>
+<p class="evnote">Before SINAIGROUP-AI, CTO Emanuel Shirbint worked in data analytics and data-warehouse architecture across healthcare and other sectors, and led research projects in neuroimmunology and medical imaging. This is prior founder experience, not a SINAIGROUP-AI delivery.</p>
+<p class="evnote">SINAIGROUP-AI currently has no healthcare deployments and no healthcare clients. The evidence presented here consists of prior founder experience and published research, not a SINAIGROUP-AI clinical delivery record.</p>
 <p class="hactions" style="margin-top:26px"><a class="btn btn-o" href="../#rnd">Open the research record &rarr;</a></p>
 </div></section>
 
@@ -82,6 +116,13 @@ pumping station. What changes is the consequence, not the test.</p>
 <span class="tag">Economics</span>
 <h2 class="dh2">Governed AI must produce<br><span class="gold">measurable value</span></h2>
 <div class="ecogrid"><div class="ecocard"><h3>Baseline</h3><p>What happens today? What the current process costs or produces, established before anything is built.</p></div><div class="ecocard"><h3>Target</h3><p>What measurable outcome should change? Agreed in advance, in the organisation&rsquo;s own units, not in generic percentages.</p></div><div class="ecocard"><h3>Evaluation</h3><p>Did it change, and what was it worth? Measured against the baseline after the pilot, including the cases where it did not.</p></div></div>
+</div></section>
+
+<section class="section"><div class="wrap">
+<span class="tag">Engagement boundary</span>
+<h2 class="dh2">What a first conversation covers</h2>
+<p class="sub dsub">A first conversation begins with one decision: what clinical decision matters, what evidence it depends on, who holds authority over it today, and what happens if it is wrong.</p>
+<p class="evnote">We set out what we would design, what we would measure and what we would need from you.</p>
 </div></section>
 
 <section class="section"><div class="wrap">
