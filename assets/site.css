@@ -128,18 +128,23 @@ header{position:fixed;inset:0 0 auto 0;z-index:50;background:var(--bg);border-bo
 .cform .field:nth-child(2n){border-right:0}
 .cform .full{grid-column:1/3;border-right:0}
 .cform label{display:block;font-family:'Archivo';font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);padding:16px 20px 0}
-.cform input,.cform textarea{width:100%;border:0;background:transparent;font-family:'Inter';font-size:1rem;color:var(--ink);padding:6px 20px 18px;outline:none;resize:none}
-.cform input:focus,.cform textarea:focus{background:var(--panel)}
-.cbar{border:2px solid var(--ink);border-top:0;padding:18px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
-.cinfo{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:2px solid var(--ink);border-top:0}
-.cinfo div{padding:22px;border-right:2px solid var(--ink)}
-.cinfo div:last-child{border-right:0}
+.cform input,.cform textarea,.cform select{width:100%;border:0;background:transparent;font-family:'Inter';font-size:1rem;color:var(--ink);padding:6px 20px 18px;outline:none;resize:none}
+.cform select{border-radius:0;cursor:pointer}
+.field label .opt{font-weight:400;letter-spacing:0;text-transform:none;color:var(--faint)}
+.cform input:focus,.cform textarea:focus,.cform select:focus{background:var(--panel)}
+.cbar{padding:18px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
+.cinfo{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+.cinfo div{padding:22px 22px 22px 0}
 .cinfo .k{font-family:'Archivo';font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
 .cinfo .v{font-family:'Archivo';font-weight:700;margin-top:6px}
 .cform .ferr{display:block;color:#a5311f;font-size:.82rem;padding:0 20px 14px}
 .cform [aria-invalid="true"]{background:#fdf3f1}
 .cf-status{margin-top:18px;font-family:'Archivo';font-weight:700;font-size:.9rem;color:var(--ink)}
 .cf-fallback{margin-top:10px;font-size:.9rem;color:var(--grey)}
+.cf-fallback a{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+.cbar-note{margin:0;font-size:.9rem;color:var(--grey);max-width:520px}
+.cbar-nojs a{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+.cform .fhint{margin:4px 0 0;padding:0 20px;font-size:.82rem;line-height:1.45;color:var(--grey)}
 
 .cta{padding:120px 0;background:var(--ink);color:var(--bg);text-align:center}
 .cta h2{font-size:clamp(2.6rem,7vw,5.5rem)}
@@ -153,7 +158,7 @@ footer{border-top:2px solid var(--ink);padding:50px 0}
 .foot a{font-family:'Archivo';font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.08em}
 .foot a:hover{color:var(--gold)}
 .copy{font-family:'Archivo';font-size:12px;color:var(--faint);width:100%;text-align:right;margin-top:10px}
-@media(max-width:900px){.nav-links{display:none}.burger{display:block}.row{grid-template-columns:70px 1fr;gap:14px}.rdesc,.rmetric{display:none}.pgrid,.sols,.team,.cform,.cinfo{grid-template-columns:1fr}.pcell,.sol,.mem{border-right:0}.cform .field,.cform .full{border-right:0}.cinfo div{border-right:0;border-bottom:2px solid var(--ink)}.section{padding:76px 0}.case{grid-template-columns:1fr}}
+@media(max-width:900px){.nav-links{display:none}.burger{display:block}.row{grid-template-columns:70px 1fr;gap:14px}.rdesc,.rmetric{display:none}.pgrid,.sols,.team,.cform,.cinfo{grid-template-columns:1fr}.pcell,.sol,.mem{border-right:0}.cform .field,.cform .full{border-right:0}.cinfo div{padding:14px 0}.section{padding:76px 0}.case{grid-template-columns:1fr}}
 #prog{position:fixed;top:0;left:0;height:3px;width:0;background:var(--gold);z-index:60;transition:width .12s ease-out}
 .logo img{height:30px;display:block}
 .foot .logo img{height:30px}
@@ -178,8 +183,7 @@ footer{border-top:2px solid var(--ink);padding:50px 0}
   .pgrid,.sols,.team,.cform,.cinfo{grid-template-columns:1fr !important}
   .cform .field,.cform .full{border-right:0 !important;grid-column:auto !important}
   .cform input,.cform textarea{width:100%}
-  .cinfo div{border-right:0 !important;border-bottom:2px solid var(--ink)}
-  .cinfo div:last-child{border-bottom:0}
+  .cinfo div{padding:14px 0}
   .row{padding-left:0 !important;padding-right:0 !important}
   .sectors{max-width:100%}
 }
@@ -587,6 +591,9 @@ html:not(.is-home){scroll-snap-type:none}
 @media(max-width:359px){
   #rnd h1,#rnd h2,#rnd .rtitle,#rnd .h-sub-case,#rnd .pmeta,#rnd .pauth{
     -webkit-hyphens:auto;hyphens:auto;overflow-wrap:break-word}
+  /* Phase 3: "INFRASTRUCTURE" in the Architecture h1 is 297px at the 3rem floor;
+     below 360px use the domain-page h1 floor (2.4rem) already in this system */
+  #architecture .phead h1{font-size:clamp(2.4rem,8.5vw,7rem)}
 }
 /* R&D record titles carry a looser leading (1.26) than the AI Platform cases,
    so the shared ordinal keeps its size and only the optical nudge is retuned. */
@@ -838,16 +845,11 @@ h3.rtitle .uh,#home .dcard h3 .uh,
 #home .hdomains .ink{color:var(--ink)}
 
 /* ============================================================================
-   Maturity badges — Master Brief v2, Block A. Added 2026-09-04.
-   Vocabulary: PRODUCTION PATTERN · REFERENCE ARCHITECTURE · RESEARCH-BACKED
-   METHOD · EXPERIMENTAL · ROADMAP.
+   Maturity badges. Added 2026-09-04; vocabulary per Work Order 02 s.C (below).
    Built from tokens already in this release — --ink, --gold, --grey, --bg — and
    from the existing label grammar (.dk: Archivo 700, 11px, .14em, uppercase).
    Square corners and a 2px edge to match the site's rules; no pills, no
-   gradients, no new colour. Meaning is carried by weight and line style:
-     solid ink   = built           outlined ink  = designed, not built
-     green       = research-backed grey          = experimental
-     dashed grey = not built yet
+   gradients, no new colour.
    ========================================================================= */
 .mb{display:inline-flex;align-items:center;gap:8px;vertical-align:baseline;
   font-family:'Archivo','Helvetica Neue',Helvetica,Arial,sans-serif;
@@ -855,12 +857,15 @@ h3.rtitle .uh,#home .dcard h3 .uh,
   line-height:1;padding:6px 10px;border:2px solid var(--ink);color:var(--ink);
   background:transparent;border-radius:0;white-space:nowrap}
 .mb::before{content:"";width:7px;height:7px;background:currentColor;flex:0 0 auto}
-.mb-prod{background:var(--ink);color:var(--bg);border-color:var(--ink)}
-.mb-ref{border-color:var(--ink);color:var(--ink)}
-.mb-research{border-color:var(--gold);color:var(--gold)}
-.mb-exp{border-color:var(--grey);color:var(--grey)}
-.mb-road{border-style:dashed;border-color:var(--grey);color:var(--grey)}
-.mb-road::before{background:transparent;border:2px solid currentColor;width:5px;height:5px}
+/* Vocabulary - Work Order 02 s.C, the single authoritative list. One visual
+   treatment for all eight: ink outline, square; the text carries the meaning.
+   REFERENCE ARCHITECTURE .mb-ref  PRIOR FOUNDER EXPERIENCE .mb-founder
+   SINAIGROUP-AI ENGAGEMENT .mb-engagement  PEER-REVIEWED RESEARCH .mb-peer
+   PREPRINT .mb-preprint  EXTERNAL RESEARCH .mb-external  IN DEVELOPMENT .mb-dev
+   CONCEPT .mb-concept */
+.mb-ref,.mb-founder,.mb-engagement,.mb-peer,.mb-preprint,.mb-external,.mb-dev,.mb-concept{border-color:var(--ink);color:var(--ink)}
+/* the badge's status word is read by screen readers, not shown */
+.sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 /* when a badge closes a paragraph it sits on its own line, not mid-sentence */
 p > .mb:last-child,.rsub > .mb:last-child{display:flex;width:max-content;max-width:100%;margin-top:16px}
 @media(max-width:520px){.mb{font-size:10px;letter-spacing:.12em;padding:5px 8px;white-space:normal}}

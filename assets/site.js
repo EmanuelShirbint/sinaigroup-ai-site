@@ -242,14 +242,17 @@
   var cf = document.getElementById('contactForm');
   if (cf) {
     var st = document.getElementById('cf-status');
+    /* required: Name, Email, decision. Everything else is optional (owner decision, Phase 2). */
     var checks = [
       {id:'cf-name',    err:'cf-name-e',    ok:function(v){return v.trim().length>1;}},
-      {id:'cf-company', err:'cf-company-e', ok:function(v){return v.trim().length>1;}},
       {id:'cf-email',   err:'cf-email-e',   ok:function(v){return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim());}},
-      {id:'cf-message', err:'cf-message-e', ok:function(v){return v.trim().length>9;}}
+      {id:'cf-decision',err:'cf-decision-e',ok:function(v){return v.trim().length>9;}}
     ];
-    cf.addEventListener('submit', function(e){
-      e.preventDefault();
+    /* The CTA is type="button" and the form is method="dialog": there is no native
+       submission path (see PHASE2_REPORT.md, Phase 2.1). This routine runs from the
+       button's click; the submit listener stays only as a guard. */
+    var go = function(e){
+      if (e && e.preventDefault) e.preventDefault();
       var bad = null;
       checks.forEach(function(c){
         var el = document.getElementById(c.id), msg = document.getElementById(c.err);
@@ -263,15 +266,34 @@
         st.textContent = 'Some details are missing — please check the highlighted fields.';
         bad.focus(); return;
       }
-      var g = function(id){ return document.getElementById(id).value.trim(); };
-      var subject = 'Demo request — ' + g('cf-company');
-      var body = 'Name: ' + g('cf-name') + '\nCompany: ' + g('cf-company') + '\nEmail: ' + g('cf-email')
-        + '\nSector: ' + g('cf-sector') + '\n\n' + g('cf-message') + '\n';
+      /* mailto construction.
+         Fixed (owner-approved, not user-controlled): recipient, subject, the field labels
+         and the line structure of the body.
+         User-controlled: the eight field values. Each one is (1) stripped of CR, LF and every
+         other C0/DEL control character — replaced by a single space — and trimmed, then
+         (2) percent-encoded with encodeURIComponent on its own, before it is placed into the
+         already-encoded body. No raw value is ever concatenated into the URI. */
+      var SUBJECT = 'New enquiry — SINAIGROUP-AI';
+      var strip = function(v){ return String(v == null ? '' : v).replace(/[\u0000-\u001F\u007F]+/g, ' ').trim(); };
+      var enc = function(id){ var v = strip(document.getElementById(id).value); return encodeURIComponent(v || '—'); };
+      var NL = '%0A', L = function(t){ return encodeURIComponent(t); };
+      var body =
+          L('Name: ') + enc('cf-name')
+        + NL + L('Organisation: ') + enc('cf-org')
+        + NL + L('Email: ') + enc('cf-email')
+        + NL + L('Domain: ') + enc('cf-domain')
+        + NL + NL + L('What decision are you trying to improve?') + NL + enc('cf-decision')
+        + NL + NL + L('Current technology stack:') + NL + enc('cf-stack')
+        + NL + NL + L('What happens if the decision is wrong?') + NL + enc('cf-wrong')
+        + NL + NL + L('Additional context:') + NL + enc('cf-context') + NL;
       st.hidden = false;
       st.textContent = 'Opening your email application… if nothing happens, write to don.elan@sinaigroup-ai.com.';
       window.location.href = 'mailto:don.elan@sinaigroup-ai.com?subject='
-        + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-    });
+        + encodeURIComponent(SUBJECT) + '&body=' + body;
+    };
+    var send = document.getElementById('cf-send');
+    if (send) send.addEventListener('click', go);
+    cf.addEventListener('submit', go);
   }
 
   /* ---- reduced motion at runtime ---- */
