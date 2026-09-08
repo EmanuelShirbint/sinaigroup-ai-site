@@ -872,3 +872,54 @@ p > .mb:last-child,.rsub > .mb:last-child{display:flex;width:max-content;max-wid
 
 /* R&D: the last row of each record list drops its rule - the section rule below it closes the list */
 #rnd .cases>.case:last-child,#rnd .srows>.srow:last-child{border-bottom:0}
+
+/* Algorithms research: additive reuse of the approved publication-card styles. */
+#algorithms-research .disclose{font-size:.9rem;color:var(--faint);margin-top:14px;
+  border-left:2px solid var(--bone);padding-left:14px}
+#algorithms-research .pubrec{align-items:start}
+#algorithms-research .pmeta{font-family:'Archivo',sans-serif;font-weight:700;font-size:.7rem;
+  letter-spacing:.11em;text-transform:uppercase;color:var(--faint);margin-top:10px;line-height:1.6}
+#algorithms-research .pauth{font-size:.84rem;color:var(--grey);margin-top:8px;line-height:1.55}
+#algorithms-research .plinks{margin-top:12px;display:flex;flex-wrap:wrap;gap:8px 24px}
+#algorithms-research .plinks a{font-family:'Archivo',sans-serif;font-weight:700;font-size:.78rem;
+  letter-spacing:.04em;color:var(--gold);text-decoration:none;
+  border-bottom:1px solid transparent;word-break:break-word}
+#algorithms-research .plinks a:hover,
+#algorithms-research .plinks a:focus-visible{border-bottom-color:var(--gold)}
+#algorithms-research .case:hover .pmeta{color:rgba(240,235,226,.68)}
+#algorithms-research .case:hover .pauth{color:rgba(240,235,226,.84)}
+#algorithms-research .case:hover .plinks a{color:var(--gold2)}
+#algorithms-research .case:hover .plinks a:hover{border-bottom-color:var(--gold2)}
+@media(max-width:760px){
+#algorithms-research .plinks{gap:8px 18px}
+#algorithms-research .h-sub-case{font-size:1.08rem;line-height:1.26}
+}
+@media(max-width:359px){
+#algorithms-research .h-sub-case,
+#algorithms-research .pmeta,
+#algorithms-research .pauth{
+    -webkit-hyphens:auto;hyphens:auto;overflow-wrap:break-word}
+}
+@media(max-width:760px){
+#algorithms-research .case.ordrow[data-ord-head="case"]{--ord-nudge:0px}
+}
+#algorithms-research .psep{padding:0 .5em;color:var(--faint)}
+#algorithms-research .pmore{margin-top:14px;border-top:1px solid var(--bone)}
+#algorithms-research .pmore>summary{list-style:none;cursor:pointer;padding:11px 0 0;
+  font-family:'Archivo',sans-serif;font-weight:700;font-size:.76rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--gold)}
+#algorithms-research .pmore>summary::-webkit-details-marker{display:none}
+#algorithms-research .pmore>summary::after{content:' +';font-weight:800}
+#algorithms-research .pmore[open]>summary::after{content:' –'}
+#algorithms-research .pmore>summary:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+#algorithms-research .case:hover .pmore{border-top-color:rgba(240,235,226,.28)}
+#algorithms-research .case:hover .pmore>summary{color:var(--gold2)}
+#algorithms-research .pmore-b{padding:4px 0 6px}
+#algorithms-research .pmore-b p{font-size:.86rem;color:var(--grey);margin-top:12px;line-height:1.6}
+#algorithms-research .case:hover .pmore-b p{color:rgba(240,235,226,.84)}
+#algorithms-research .plabel2{display:block;font-family:'Archivo',sans-serif;font-weight:700;font-size:.66rem;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--faint);margin-bottom:4px}
+#algorithms-research .case:hover .plabel2{color:rgba(240,235,226,.62)}
+@media(max-width:760px){
+#algorithms-research .pmeta{line-height:1.7}
+}
