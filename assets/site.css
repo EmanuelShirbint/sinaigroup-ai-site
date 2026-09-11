@@ -242,7 +242,7 @@ html:not(.is-home){scroll-snap-type:none}
    ========================================================================= */
 .ghdr{display:none}
 
-@media(max-width:1099px){
+@media(max-width:1399px){
   /* one compact header row; the section sheet overlays the page */
   .ghdr{
     display:flex;align-items:center;justify-content:space-between;width:100%;
@@ -288,7 +288,9 @@ html:not(.is-home){scroll-snap-type:none}
   body:has(#rnd:target) .gt-open{display:none}
   body:has(#rnd:target) .gt-open[data-r="rnd"]{display:inline-flex}
   body:has(#team:target) .gt-open{display:none}
+  body:has(#case-studies:target) .gt-open{display:none}
   body:has(#team:target) .gt-open[data-r="team"]{display:inline-flex}
+  body:has(#case-studies:target) .gt-open[data-r="case-studies"]{display:inline-flex}
   body:has(#contact:target) .gt-open{display:none}
   body:has(#contact:target) .gt-open[data-r="contact"]{display:inline-flex}
 
@@ -301,6 +303,7 @@ html:not(.is-home){scroll-snap-type:none}
   body:has(#menu-algorithms:target) .gt-close[data-r="algorithms"]{display:inline-flex}
   body:has(#menu-rnd:target) .gt-close[data-r="rnd"]{display:inline-flex}
   body:has(#menu-team:target) .gt-close[data-r="team"]{display:inline-flex}
+  body:has(#menu-case-studies:target) .gt-close[data-r="case-studies"]{display:inline-flex}
   body:has(#menu-contact:target) .gt-close[data-r="contact"]{display:inline-flex}
   body:has(.ghdr-anchor:target) .ghdr-toggle{color:var(--gold)}
   .ghdr-toggle:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
@@ -355,7 +358,7 @@ html:not(.is-home){scroll-snap-type:none}
   footer .foot{justify-content:space-between}
 }
 
-@media(min-width:1100px){
+@media(min-width:1400px){
   .ghdr{display:none!important}
 }
 
@@ -378,7 +381,7 @@ html:not(.is-home){scroll-snap-type:none}
    native bar. Ordinary Safari and Chrome never get this class, so they keep
    the header at the very top.
    ========================================================================= */
-@media (max-width: 1099px) {
+@media (max-width: 1399px) {
   html.ios-file-preview .ghdr {
     position: -webkit-sticky;
     position: sticky;
@@ -390,7 +393,7 @@ html:not(.is-home){scroll-snap-type:none}
      the panel is a fixed 88px and needs neither */
 }
 
-@media (max-width: 1099px) {
+@media (max-width: 1399px) {
   /* background scrolling is locked only while the sheet is open */
   html.nav-open, html.nav-open body { overflow: hidden; }
 }
@@ -400,7 +403,7 @@ html:not(.is-home){scroll-snap-type:none}
    screen. Each menu fragment pins its own route, so Architecture stays
    Architecture behind the sheet even with scripting switched off.
    ========================================================================= */
-@media (max-width: 1099px) {
+@media (max-width: 1399px) {
   body:has(#menu-home:target) .view:not(#home){display:none!important}
   body:has(#menu-home:target) #home{display:block!important}
   body:has(#menu-architecture:target) .view:not(#architecture){display:none!important}
@@ -412,7 +415,9 @@ html:not(.is-home){scroll-snap-type:none}
   body:has(#menu-rnd:target) .view:not(#rnd){display:none!important}
   body:has(#menu-rnd:target) #rnd{display:block!important}
   body:has(#menu-team:target) .view:not(#team){display:none!important}
+  body:has(#menu-case-studies:target) .view:not(#case-studies){display:none!important}
   body:has(#menu-team:target) #team{display:block!important}
+  body:has(#menu-case-studies:target) #case-studies{display:block!important}
   body:has(#menu-contact:target) .view:not(#contact){display:none!important}
   body:has(#menu-contact:target) #contact{display:block!important}
   /* the sheet marks the route it belongs to */
@@ -422,6 +427,7 @@ html:not(.is-home){scroll-snap-type:none}
   body:has(#menu-algorithms:target) .ghdr-menu a[href="#algorithms"] .glbl{color:var(--gold);font-weight:800}
   body:has(#menu-rnd:target) .ghdr-menu a[href="#rnd"] .glbl{color:var(--gold);font-weight:800}
   body:has(#menu-team:target) .ghdr-menu a[href="#team"] .glbl{color:var(--gold);font-weight:800}
+  body:has(#menu-case-studies:target) .ghdr-menu a[href="#case-studies"] .glbl{color:var(--gold);font-weight:800}
   body:has(#menu-contact:target) .ghdr-menu a[href="#contact"] .glbl{color:var(--gold);font-weight:800}
 }
 
@@ -438,6 +444,7 @@ html:not(.is-home){scroll-snap-type:none}
   #algorithms .phead,
   #rnd .phead,
   #team .phead,
+  #case-studies .phead,
   #contact .phead {
     padding-top: var(--mobile-hero-top-gap);
     padding-bottom: calc(220px - var(--mobile-hero-top-gap));
@@ -453,6 +460,7 @@ html:not(.is-home){scroll-snap-type:none}
   #algorithms .phead .tag,
   #rnd .phead .tag,
   #team .phead .tag,
+  #case-studies .phead .tag,
   #contact .phead .tag { vertical-align: top; }
 }
 
@@ -699,7 +707,7 @@ html:not(.is-home){scroll-snap-type:none}
    NAVIGATION FIT — with R&D the header needs room. Through 1099px
    the menu stays collapsed to the burger; the full navigation returns at 1100px.
    ========================================================================= */
-@media(min-width:901px) and (max-width:1199px){
+@media(min-width:901px) and (max-width:1399px){
   .nav-links{display:none}
   .demo-btn{display:none}
   .burger{display:inline-flex!important;position:relative;z-index:2;
@@ -721,7 +729,7 @@ html:not(.is-home){scroll-snap-type:none}
 }
 
 /* ===== navigation fit v2 — longer Architecture & Infrastructure label ===== */
-@media(min-width:1200px){.nav-links{gap:21px}.nav-links a{letter-spacing:.085em}}
+@media(min-width:1400px){.nav-links{gap:21px}.nav-links a{letter-spacing:.085em}}
 
 /* ===== no rule under the last row of a group: it duplicates the section separator ===== */
 .srows > .srow:last-child,
@@ -922,4 +930,60 @@ p > .mb:last-child,.rsub > .mb:last-child{display:flex;width:max-content;max-wid
 #algorithms-research .case:hover .plabel2{color:rgba(240,235,226,.62)}
 @media(max-width:760px){
 #algorithms-research .pmeta{line-height:1.7}
+}
+
+/* Case Studies uses the site's existing typography, rules and colour tokens. */
+#case-studies .cs-heading{font-size:clamp(2.2rem,5.5vw,4.2rem);margin-top:16px;line-height:1.02}
+#case-studies .cs-intro{font-size:1.06rem;line-height:1.72;color:var(--grey);max-width:840px;margin-top:22px}
+#case-studies .cs-facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin:36px 0 0;padding:24px 0;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)}
+#case-studies .cs-facts dt{font-family:'Archivo',sans-serif;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+#case-studies .cs-facts dd{margin:10px 0 0;font-size:1.06rem;line-height:1.6}
+#case-studies .cs-row{display:grid;grid-template-columns:112px minmax(0,1fr);gap:28px;padding:34px 0;border-bottom:2px solid var(--ink)}
+#case-studies .cs-row:last-child{border-bottom:0}
+#case-studies .cs-row h3{line-height:1.25}
+#case-studies .cs-body{min-width:0}
+#case-studies .cs-body>p{max-width:840px;font-size:1.06rem;line-height:1.72;color:var(--grey);margin-top:14px}
+#case-studies .cs-body .cs-question{font-family:'Archivo',sans-serif;font-weight:600;color:var(--ink);margin-top:10px}
+#case-studies .cs-label{font-family:'Archivo',sans-serif;font-weight:700;color:var(--ink)}
+#case-studies .cs-flow-details{margin-top:24px;border-top:1px solid var(--bone)}
+#case-studies .cs-flow-details summary{cursor:pointer;padding:16px 0;font-family:'Archivo',sans-serif;font-weight:700;font-size:.9rem;color:var(--gold)}
+#case-studies .cs-flow{list-style:none;counter-reset:flow;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px;padding:10px 0 20px;margin:0}
+#case-studies .cs-flow li{counter-increment:flow;border-top:2px solid var(--ink);padding-top:16px;min-width:0}
+#case-studies .cs-flow li::before{content:'0' counter(flow);display:block;font-family:'Archivo',sans-serif;font-size:12px;font-weight:700;color:var(--gold);margin-bottom:12px}
+#case-studies .cs-flow h4{font-family:'Archivo',sans-serif;font-size:1.02rem;line-height:1.4;font-weight:700;text-transform:uppercase;margin:0}
+#case-studies .cs-flow p{font-size:1rem;line-height:1.65;color:var(--grey);margin-top:12px}
+#case-studies .cs-scope{max-width:840px;border-left:2px solid var(--gold);padding-left:18px;font-size:1.06rem;line-height:1.72;color:var(--grey);margin-top:34px}
+#case-studies .cs-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
+#case-studies .cs-first{border-top:0}
+#case-studies .cs-diagram{margin:30px 0 0;padding:0}
+#case-studies .cs-diagram>a{display:block;overflow-x:auto;overscroll-behavior-x:contain}
+#case-studies .cs-diagram img{display:block;width:100%;height:auto}
+#case-studies .cs-diagram figcaption{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:12px;font-family:'Archivo',sans-serif;font-weight:700;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--grey)}
+#case-studies .cs-diagram figcaption a{color:var(--gold)}
+#case-studies .cs-diagram figcaption a:hover{text-decoration:underline}
+@media(max-width:1203px){
+  #case-studies .cs-diagram img{width:1000px;max-width:none}
+  #case-studies .cs-diagram figcaption>span::before{content:'Scroll sideways · '}
+}
+body:has(#main-case-studies:target) .view:not(#case-studies){display:none!important}
+body:has(#main-case-studies:target) #case-studies{display:block!important}
+@media(max-width:760px){
+  #case-studies .cs-facts{grid-template-columns:1fr;gap:20px}
+  #case-studies .cs-row{grid-template-columns:1fr;gap:18px}
+  #case-studies .cs-flow{grid-template-columns:1fr;gap:22px}
+}
+/* Keep the existing navigation type size. Use its mobile sheet until all eight
+   section labels fit; the wide header retains the same logo and button. */
+@media(min-width:1400px){
+  header .wrap.nav{max-width:1440px;gap:24px}
+  .nav-links{gap:18px}
+  .nav-links a{white-space:nowrap}
+  header .logo,.demo-btn{flex-shrink:0}
+}
+@media(max-width:1399px){
+  body:has(#main-case-studies:target) .gt-open{display:none}
+  body:has(#main-case-studies:target) .gt-open[data-r="case-studies"]{display:inline-flex}
+  .ghdr-menu{max-height:calc(100svh - 72px);overflow-y:auto;overscroll-behavior:contain}
+  .dpage header:focus-within .nav-links{display:flex;position:absolute;top:70px;left:0;right:0;flex-direction:column;background:var(--bg);border-bottom:2px solid var(--ink);padding:6px 32px 16px;gap:0;max-height:calc(100svh - 70px);overflow-y:auto}
+  .dpage header:focus-within .nav-links a{padding:13px 0;border-bottom:1px solid var(--bone)}
 }

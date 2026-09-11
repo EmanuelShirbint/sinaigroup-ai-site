@@ -2,7 +2,7 @@
 (function(){
   'use strict';
   try {
-  var IDS = ["home","architecture","ai-platform","algorithms","rnd","team","contact"];
+  var IDS = ["home","architecture","ai-platform","algorithms","rnd","team","case-studies","contact"];
   var rm = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : {matches:false};
   var views = {};
   IDS.forEach(function(id){ views[id] = document.getElementById(id); });
@@ -41,6 +41,7 @@
     h = h.replace(/^#/, '');
     var anchor = null, sep = h.indexOf('--');
     if (sep > -1) { anchor = h.slice(sep + 2); h = h.slice(0, sep); }
+    if (h === 'main-case-studies') { h = 'case-studies'; anchor = 'main-case-studies'; }
     if (h === 'platform') { h = 'ai-platform'; }   /* legacy hash alias */
     if (IDS.indexOf(h) === -1) { h = 'home'; }
     return {view:h, anchor:anchor};
