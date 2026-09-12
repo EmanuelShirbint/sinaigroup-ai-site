@@ -237,12 +237,12 @@ html:not(.is-home){scroll-snap-type:none}
 /* ===== <style data-tophdr=""> ===== */
 
 /* =========================================================================
-   ONE GLOBAL MOBILE HEADER — the single navigation surface below 1100px.
+   ONE GLOBAL MOBILE HEADER — the single navigation surface at 900px and below.
    Sticky, in normal document flow, so its layout space can never be removed.
    ========================================================================= */
 .ghdr{display:none}
 
-@media(max-width:1399px){
+@media(max-width:900px){
   /* one compact header row; the section sheet overlays the page */
   .ghdr{
     display:flex;align-items:center;justify-content:space-between;width:100%;
@@ -349,7 +349,7 @@ html:not(.is-home){scroll-snap-type:none}
   .ghdr-menu a[aria-current="page"] .gnum{color:rgba(13,122,85,.4)}
   .ghdr-menu a:focus-visible{outline:3px solid var(--gold);outline-offset:-3px}
 
-  /* the seven per-view headers are gone below 1100px, and being fixed they
+  /* the seven per-view headers are gone at 900px and below, and being fixed they
      leave no layout space behind */
   .view header{display:none!important}
   #home .hubnav{display:none!important}
@@ -358,7 +358,7 @@ html:not(.is-home){scroll-snap-type:none}
   footer .foot{justify-content:space-between}
 }
 
-@media(min-width:1400px){
+@media(min-width:901px){
   .ghdr{display:none!important}
 }
 
@@ -381,7 +381,7 @@ html:not(.is-home){scroll-snap-type:none}
    native bar. Ordinary Safari and Chrome never get this class, so they keep
    the header at the very top.
    ========================================================================= */
-@media (max-width: 1399px) {
+@media (max-width: 900px) {
   html.ios-file-preview .ghdr {
     position: -webkit-sticky;
     position: sticky;
@@ -393,7 +393,7 @@ html:not(.is-home){scroll-snap-type:none}
      the panel is a fixed 88px and needs neither */
 }
 
-@media (max-width: 1399px) {
+@media (max-width: 900px) {
   /* background scrolling is locked only while the sheet is open */
   html.nav-open, html.nav-open body { overflow: hidden; }
 }
@@ -403,7 +403,6 @@ html:not(.is-home){scroll-snap-type:none}
    screen. Each menu fragment pins its own route, so Architecture stays
    Architecture behind the sheet even with scripting switched off.
    ========================================================================= */
-@media (max-width: 1399px) {
   body:has(#menu-home:target) .view:not(#home){display:none!important}
   body:has(#menu-home:target) #home{display:block!important}
   body:has(#menu-architecture:target) .view:not(#architecture){display:none!important}
@@ -429,7 +428,6 @@ html:not(.is-home){scroll-snap-type:none}
   body:has(#menu-team:target) .ghdr-menu a[href="#team"] .glbl{color:var(--gold);font-weight:800}
   body:has(#menu-case-studies:target) .ghdr-menu a[href="#case-studies"] .glbl{color:var(--gold);font-weight:800}
   body:has(#menu-contact:target) .ghdr-menu a[href="#contact"] .glbl{color:var(--gold);font-weight:800}
-}
 
 /* =========================================================================
    MOBILE HERO TOP GAP — the Home portal is the reference. Every internal
@@ -703,34 +701,6 @@ html:not(.is-home){scroll-snap-type:none}
 
 /* ===== <style data-navfit=""> ===== */
 
-/* =========================================================================
-   NAVIGATION FIT — with R&D the header needs room. Through 1099px
-   the menu stays collapsed to the burger; the full navigation returns at 1100px.
-   ========================================================================= */
-@media(min-width:901px) and (max-width:1399px){
-  .nav-links{display:none}
-  .demo-btn{display:none}
-  .burger{display:inline-flex!important;position:relative;z-index:2;
-    min-width:44px;min-height:44px;align-items:center;justify-content:center;padding:0}
-  header.open .nav-links{display:flex;position:absolute;top:70px;left:0;right:0;
-    flex-direction:column;background:var(--bg);border-bottom:2px solid var(--ink);
-    padding:6px 32px 16px;gap:0}
-  header.open .nav-links a{padding:13px 0;border-bottom:1px solid rgba(43,40,34,.12)}
-  header.open .nav-links a::after{display:none}
-  #home .hlinks,#home .hdemo{display:none}
-  #home .hburger{display:inline-flex!important;
-    min-width:44px;min-height:44px;align-items:center;justify-content:center;padding:0}
-  #home .hubnav.open .hlinks{display:flex;position:absolute;top:70px;left:0;right:0;
-    flex-direction:column;background:var(--paper);border-bottom:2px solid var(--ink);
-    padding:8px 32px 16px;gap:0}
-  #home .hubnav.open .hlinks a{padding:13px 0;border-bottom:1px solid rgba(43,40,34,.14)}
-  #home .hubnav.open .hlinks a.act::after,
-  #home .hubnav.open .hlinks a:hover::after{display:none}
-}
-
-/* ===== navigation fit v2 — longer Architecture & Infrastructure label ===== */
-@media(min-width:1400px){.nav-links{gap:21px}.nav-links a{letter-spacing:.085em}}
-
 /* ===== no rule under the last row of a group: it duplicates the section separator ===== */
 .srows > .srow:last-child,
 #architecture .prose .srows > .srow.has-head:last-child,
@@ -972,18 +942,31 @@ body:has(#main-case-studies:target) #case-studies{display:block!important}
   #case-studies .cs-row{grid-template-columns:1fr;gap:18px}
   #case-studies .cs-flow{grid-template-columns:1fr;gap:22px}
 }
-/* Keep the existing navigation type size. Use its mobile sheet until all eight
-   section labels fit; the wide header retains the same logo and button. */
-@media(min-width:1400px){
+/* Desktop sections stay horizontal; only mobile uses the vertical sheet. */
+@media(min-width:901px){
   header .wrap.nav{max-width:1440px;gap:24px}
   .nav-links{gap:18px}
   .nav-links a{white-space:nowrap}
   header .logo,.demo-btn{flex-shrink:0}
 }
-@media(max-width:1399px){
+@media(max-width:900px){
   body:has(#main-case-studies:target) .gt-open{display:none}
   body:has(#main-case-studies:target) .gt-open[data-r="case-studies"]{display:inline-flex}
   .ghdr-menu{max-height:calc(100svh - 72px);overflow-y:auto;overscroll-behavior:contain}
   .dpage header:focus-within .nav-links{display:flex;position:absolute;top:70px;left:0;right:0;flex-direction:column;background:var(--bg);border-bottom:2px solid var(--ink);padding:6px 32px 16px;gap:0;max-height:calc(100svh - 70px);overflow-y:auto}
   .dpage header:focus-within .nav-links a{padding:13px 0;border-bottom:1px solid var(--bone)}
+}
+
+/* Fit all eight desktop sections without switching laptops to the mobile menu. */
+@media(min-width:901px) and (max-width:1399px){
+  header .wrap.nav{gap:16px;padding-inline:22px}
+  .nav-links{gap:12px}
+  .nav-links a{letter-spacing:.04em}
+  header .demo-btn{padding:12px 16px;white-space:nowrap}
+}
+@media(min-width:901px) and (max-width:1199px){
+  header .wrap.nav{height:108px;display:grid;grid-template-columns:1fr auto;row-gap:0}
+  header .nav-links{grid-column:1 / -1;grid-row:2;justify-content:space-between;padding-bottom:12px}
+  header .demo-btn{grid-column:2;grid-row:1}
+  html{scroll-padding-top:118px}
 }
