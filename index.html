@@ -642,6 +642,19 @@
   </div>
 </div></section>
 
+<section class="section" id="algorithms-hclc"><div class="wrap">
+  <span class="tag rv">In-house method work · HCLC</span>
+  <h2 class="rv" style="font-size:clamp(2.2rem,5.5vw,4.2rem);margin-top:16px">Our own<br><span class="gold">method work</span></h2>
+  <div class="prose rv" style="max-width:840px;margin-top:20px">
+    <p>Everything above is prior scholarship. This is not. HCLC is our own method work, set out in a white paper dated July 2026. It is unpublished: no journal, no DOI, no peer review, and not an implemented SINAIGROUP-AI engine.</p>
+    <p>Fuzzy modelling has to know where a set begins and ends. Soft Regression — approach 01 above — works on data normalised to the interval between 0 and 1: full members of a set are assigned 1, definite non-members 0, and everything in between a partial degree. That normalisation needs two cut-off points, a high cut and a low cut, for the dependent variable and for every explanatory variable in the model.</p>
+    <p>There has been no formal procedure for computing them. In practice they are taken from the highest and lowest value of each vector, which is arbitrary, or set by a domain expert — which works only where the data fall into visibly separated groups. Where the data are continuous, experts disagree or cannot say; and where a model carries 22,000 explanatory variables, no expert can set them at all.</p>
+    <p>HCLC computes those cut-off points from the data itself, for the dependent variable and all explanatory variables together. The case it was built for has a clinical parameter as the dependent variable and approximately 22,000 gene-expression vectors as the explanatory variables — a shape conventional multivariate regression cannot take, because a model cannot carry more explanatory variables than it has measurements in each. The alternative in use is to test each variable on its own, which produces as many separate models as there are variables and leaves them difficult to compare. HCLC allows one model. The difficulty of bounding raw gene expression by hand is the batch effect addressed in approach 06 above.</p>
+    <p>One property is worth naming, because it recurs throughout this work: values above the high cut and below the low cut are brought to 1 and to 0 rather than removed. Outliers lose their leverage without being deleted from the data.</p>
+    <p class="disclose">The white paper sets out the method and the reasoning behind it. It does not present, in that document, a comparison against the cut-off points used before it, and no such comparison is claimed here. HCLC is a method we have described — not a validated result, not a product, and not a client deployment.</p>
+  </div>
+</div></section>
+
 <section class="section" id="algorithms-research"><div class="wrap">
   <span class="tag rv">Selected publications · 7</span>
   <h2 class="rv" style="font-size:clamp(2.2rem,5.5vw,4.2rem);margin-top:16px">Published research<br><span class="gold">behind these approaches</span></h2>
