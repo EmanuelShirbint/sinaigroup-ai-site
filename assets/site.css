@@ -973,20 +973,32 @@ body:has(#main-case-studies:target) #case-studies{display:block!important}
 
 /* ------------------------------------------------------------------ *
  * Applied Work — second engagement (financial risk intelligence).
- * Additive only: new class names, existing colour and type tokens.
- * Rules, not boxes — the same grammar as .cs-row and .cs-flow.
+ * Additive only. Every class below is used by this case and by nothing
+ * else on the site, so none of it can reach the India case.
+ * Rules only where a rule earns its place; otherwise whitespace.
  * ------------------------------------------------------------------ */
-#case-studies .cs-tags{display:flex;flex-wrap:wrap;gap:4px 0;margin:18px 0 0;padding:0;list-style:none;
+
+/* metadata: gold label over value, no band around it */
+#case-studies .cs-facts{border-top:0;border-bottom:0;padding:0;margin:34px 0 0;gap:24px 28px}
+
+/* technologies: one mono line, middot separated */
+#case-studies .cs-tags{display:flex;flex-wrap:wrap;gap:4px 0;margin:22px 0 0;padding:0;list-style:none;
   font-family:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.78rem;letter-spacing:.03em;color:var(--grey)}
 #case-studies .cs-tags li+li::before{content:"\00a0\00b7\00a0\00a0";color:var(--gold)}
-#case-studies .cs-jump{display:flex;flex-wrap:wrap;gap:6px 24px;margin:24px 0 0;padding:16px 0 0;list-style:none;border-top:2px solid var(--ink)}
+
+/* in-page navigation: links, nothing drawn around them */
+#case-studies .cs-jump{display:flex;flex-wrap:wrap;gap:8px 26px;margin:30px 0 0;padding:0;list-style:none}
 #case-studies .cs-jump a{font-family:'Archivo',sans-serif;font-size:.86rem;font-weight:700;color:var(--gold)}
 #case-studies .cs-jump a:hover{text-decoration:underline}
+
+/* a quoted principle: the section's own left-rule idiom, as .cs-scope uses */
 #case-studies .cs-quote{max-width:840px;border-left:2px solid var(--gold);padding-left:18px;margin-top:26px;
   font-family:'Archivo',sans-serif;font-weight:600;font-size:1.1rem;line-height:1.55;color:var(--ink)}
+
+/* architecture figures: rows parted by hairlines, no cards and no arrows */
 #case-studies .cs-arch{margin:30px 0 0;padding:0}
-/* these figures are laid out in the flow and never scroll sideways, so the
-   wide-image hint the section adds below 1203px must not appear on them */
+/* laid out in the flow and never scrolling, so the wide-image hint the
+   section adds below 1203px must not appear on them */
 #case-studies .cs-arch figcaption>span::before{content:none}
 #case-studies .cs-stack{list-style:none;margin:0;padding:0;border-top:2px solid var(--ink)}
 #case-studies .cs-stack>li{display:grid;grid-template-columns:150px minmax(0,1fr);gap:0 24px;
@@ -998,18 +1010,21 @@ body:has(#main-case-studies:target) #case-studies{display:block!important}
   font-size:1.02rem;line-height:1.3;text-transform:uppercase;margin:0;color:var(--ink)}
 #case-studies .cs-stack .stg-d{grid-column:2;grid-row:2;font-size:.98rem;line-height:1.62;color:var(--grey);
   margin:8px 0 0;max-width:660px}
-#case-studies .cs-branch{grid-column:2;grid-row:3;list-style:none;display:flex;flex-wrap:wrap;gap:4px 0;margin:12px 0 0;padding:0;
-  font-family:'Archivo',sans-serif;font-size:.88rem;font-weight:600;color:var(--ink)}
+#case-studies .cs-branch{grid-column:2;grid-row:3;list-style:none;display:flex;flex-wrap:wrap;gap:4px 0;
+  margin:12px 0 0;padding:0;font-family:'Archivo',sans-serif;font-size:.88rem;font-weight:600;color:var(--ink)}
 #case-studies .cs-branch li+li::before{content:"\00a0\00b7\00a0\00a0";color:var(--gold);font-weight:700}
-#case-studies .cs-mgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 24px;margin-top:24px}
-#case-studies .cs-mgrid>section{border-top:2px solid var(--ink);padding-top:14px;min-width:0}
-#case-studies .cs-mgrid h4{font-family:'Archivo',sans-serif;font-size:.95rem;line-height:1.35;font-weight:700;
-  text-transform:uppercase;margin:0;color:var(--ink)}
+
+/* paired blocks: a hairline, not a heavy rule, and never a box */
+#case-studies .cs-mgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px 32px;margin-top:26px}
+#case-studies .cs-mgrid>section{border-top:1px solid var(--bone);padding-top:14px;min-width:0}
+#case-studies .cs-mgrid h4{font-family:'Archivo',sans-serif;font-size:.92rem;line-height:1.35;font-weight:700;
+  letter-spacing:.02em;text-transform:uppercase;margin:0;color:var(--ink)}
 #case-studies .cs-mgrid p{font-size:.98rem;line-height:1.62;color:var(--grey);margin:10px 0 0}
-#case-studies .cs-mgrid ul{margin:10px 0 0;padding-left:18px;font-size:.96rem;line-height:1.62;color:var(--grey)}
+#case-studies .cs-mgrid ul{margin:10px 0 0;padding-left:16px;font-size:.96rem;line-height:1.62;color:var(--grey)}
 #case-studies .cs-mgrid li+li{margin-top:4px}
+
 @media(max-width:760px){
-  #case-studies .cs-mgrid{grid-template-columns:1fr}
+  #case-studies .cs-mgrid{grid-template-columns:1fr;gap:22px}
   #case-studies .cs-stack>li{grid-template-columns:1fr;gap:0}
   #case-studies .cs-stack .stg-n,
   #case-studies .cs-stack .stg-t,
