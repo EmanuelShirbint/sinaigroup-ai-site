@@ -994,80 +994,8 @@ body:has(#main-case-studies:target) #case-studies{display:block!important}
 #case-studies .cs-quote{max-width:840px;border-left:2px solid var(--gold);padding-left:18px;margin-top:26px;
   font-family:'Archivo',sans-serif;font-weight:600;font-size:1.1rem;line-height:1.55;color:var(--ink)}
 
-/* --- figures: all laid out in the text flow, so the text is never scaled --- */
-#case-studies .cs-arch{margin:30px 0 0;padding:0}
-/* they never scroll sideways, so the wide-image hint the section adds
-   below 1203px must not appear on them */
-#case-studies .cs-arch figcaption>span::before{content:none}
-#case-studies .cs-arch .fig-note{margin:14px 0 0;font-size:.95rem;line-height:1.6;color:var(--grey);max-width:760px}
-
-/* a sequence of stages */
-#case-studies .cs-stack{list-style:none;margin:0;padding:0;border-top:2px solid var(--ink)}
-#case-studies .cs-stack>li{display:grid;grid-template-columns:150px minmax(0,1fr);gap:0 24px;
-  padding:20px 0;border-bottom:1px solid var(--bone);min-width:0}
-#case-studies .cs-stack>li:last-child{border-bottom:0;padding-bottom:4px}
-#case-studies .cs-stack .stg-n{grid-column:1;grid-row:1/span 3;font-family:'Archivo',sans-serif;font-size:11px;
-  font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);padding-top:4px}
-#case-studies .cs-stack .stg-t{grid-column:2;grid-row:1;font-family:'Archivo',sans-serif;font-weight:700;
-  font-size:1.02rem;line-height:1.3;text-transform:uppercase;margin:0;color:var(--ink)}
-#case-studies .cs-stack .stg-d{grid-column:2;grid-row:2;font-size:.98rem;line-height:1.62;color:var(--grey);
-  margin:8px 0 0;max-width:660px}
-#case-studies .cs-branch{grid-column:2;grid-row:3;list-style:none;display:flex;flex-wrap:wrap;gap:4px 0;
-  margin:12px 0 0;padding:0;font-family:'Archivo',sans-serif;font-size:.88rem;font-weight:600;color:var(--ink)}
-#case-studies .cs-branch li+li::before{content:"\00a0\00b7\00a0\00a0";color:var(--gold);font-weight:700}
-
-/* parallel domains, parted by hairlines rather than drawn as panels */
-#case-studies .cs-zones{list-style:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));
-  margin:0;padding:0;border-top:2px solid var(--ink)}
-#case-studies .cs-zones>li{padding:16px 20px 6px 0;min-width:0}
-#case-studies .cs-zones>li+li{border-left:1px solid var(--bone);padding-left:20px}
-#case-studies .cs-zones .zn-n{display:block;font-family:'Archivo',sans-serif;font-size:11px;font-weight:700;
-  letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
-#case-studies .cs-zones .zn-t{font-family:'Archivo',sans-serif;font-weight:700;font-size:.98rem;line-height:1.3;
-  text-transform:uppercase;margin:8px 0 0;color:var(--ink)}
-#case-studies .cs-zones .zn-d{font-size:.95rem;line-height:1.6;color:var(--grey);margin:8px 0 0}
-
-/* a timeline: one hairline track, gold marks where something is recorded */
-#case-studies .cs-time{list-style:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0 24px;
-  margin:0;padding:0;border-top:1px solid var(--bone)}
-#case-studies .cs-time>li{position:relative;padding:24px 0 4px;min-width:0}
-#case-studies .cs-time>li::before{content:"";position:absolute;left:0;top:-5px;width:9px;height:9px;
-  border-radius:50%;background:var(--gold)}
-#case-studies .cs-time>li.tm-join::before{background:var(--ink)}
-#case-studies .cs-time .tm-k{display:block;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:.76rem;
-  letter-spacing:.04em;color:var(--gold)}
-#case-studies .cs-time>li.tm-join .tm-k{color:var(--ink)}
-#case-studies .cs-time .tm-t{font-family:'Archivo',sans-serif;font-weight:700;font-size:.98rem;line-height:1.3;
-  text-transform:uppercase;margin:8px 0 0;color:var(--ink)}
-#case-studies .cs-time .tm-d{font-size:.95rem;line-height:1.6;color:var(--grey);margin:8px 0 0}
-
-/* a gate: the checks, then what each branch does */
-#case-studies .cs-checks{list-style:none;display:flex;flex-wrap:wrap;gap:6px 10px;margin:0;padding:16px 0 0;
-  border-top:2px solid var(--ink);font-family:'Archivo',sans-serif;font-size:.92rem;font-weight:600;color:var(--ink)}
-#case-studies .cs-checks li:not(:last-child)::after{content:"\00a0\00b7";color:var(--gold);font-weight:700}
-#case-studies .cs-fork{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 28px;margin-top:22px}
-#case-studies .cs-fork>section{border-top:1px solid var(--bone);padding-top:12px;min-width:0}
-#case-studies .cs-fork .fk-n{display:block;font-family:'Archivo',sans-serif;font-size:11px;font-weight:700;
-  letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
-#case-studies .cs-fork p{font-size:.95rem;line-height:1.6;color:var(--grey);margin:8px 0 0}
-
-/* depth: each level sits one step further in than the one above it */
-#case-studies .cs-levels{list-style:none;margin:0;padding:0;border-top:2px solid var(--ink)}
-#case-studies .cs-levels>li{position:relative;padding:16px 0 16px 0;border-bottom:1px solid var(--bone);min-width:0}
-#case-studies .cs-levels>li:last-child{border-bottom:0}
-#case-studies .cs-levels>li:nth-child(2){padding-left:40px}
-#case-studies .cs-levels>li:nth-child(3){padding-left:80px}
-#case-studies .cs-levels .lv-n{display:block;font-family:'Archivo',sans-serif;font-size:11px;font-weight:700;
-  letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
-#case-studies .cs-levels .lv-t{font-family:'Archivo',sans-serif;font-weight:700;font-size:.98rem;line-height:1.3;
-  text-transform:uppercase;margin:8px 0 0;color:var(--ink)}
-#case-studies .cs-levels .lv-d{font-size:.95rem;line-height:1.6;color:var(--grey);margin:8px 0 0;max-width:660px}
-
-/* the chain, written as a chain */
-#case-studies .cs-chain{list-style:none;display:flex;flex-wrap:wrap;gap:10px 10px;margin:0;padding:18px 0 0;
-  border-top:2px solid var(--ink);font-family:'Archivo',sans-serif;font-weight:700;font-size:.92rem;
-  text-transform:uppercase;letter-spacing:.01em;color:var(--ink)}
-#case-studies .cs-chain li:not(:last-child)::after{content:"\00a0\00a0\2192";color:var(--gold)}
+/* Diagrams: the eight artboards use the section's existing .cs-diagram
+   markup, so no new figure rule is needed here. */
 
 /* paired blocks: a hairline, not a heavy rule, and never a box */
 #case-studies .cs-mgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px 32px;margin-top:26px}
@@ -1078,40 +1006,6 @@ body:has(#main-case-studies:target) #case-studies{display:block!important}
 #case-studies .cs-mgrid ul{margin:10px 0 0;padding-left:16px;font-size:.96rem;line-height:1.62;color:var(--grey)}
 #case-studies .cs-mgrid li+li{margin-top:4px}
 
-@media(max-width:900px){
-  #case-studies .cs-zones{grid-template-columns:repeat(2,minmax(0,1fr))}
-  #case-studies .cs-zones>li:nth-child(3){border-left:0;padding-left:0}
-  #case-studies .cs-zones>li:nth-child(3),
-  #case-studies .cs-zones>li:nth-child(4){border-top:1px solid var(--bone);margin-top:14px;padding-top:16px}
-  #case-studies .cs-time{grid-template-columns:repeat(2,minmax(0,1fr));gap:26px 24px}
-  #case-studies .cs-time>li:nth-child(n+3){border-top:1px solid var(--bone)}
-}
 @media(max-width:760px){
   #case-studies .cs-mgrid{grid-template-columns:1fr;gap:22px}
-  #case-studies .cs-fork{grid-template-columns:1fr;gap:18px}
-  #case-studies .cs-stack>li{grid-template-columns:1fr;gap:0}
-  #case-studies .cs-stack .stg-n,
-  #case-studies .cs-stack .stg-t,
-  #case-studies .cs-stack .stg-d,
-  #case-studies .cs-branch{grid-column:1;grid-row:auto}
-  #case-studies .cs-stack .stg-n{padding-top:0}
-  #case-studies .cs-stack .stg-t{margin-top:8px}
-  #case-studies .cs-zones{grid-template-columns:1fr}
-  #case-studies .cs-zones>li{border-left:0;padding-left:0;padding-right:0}
-  #case-studies .cs-zones>li+li{border-left:0;padding-left:0;border-top:1px solid var(--bone);margin-top:14px;padding-top:16px}
-  #case-studies .cs-time{grid-template-columns:1fr;gap:0;border-top:0;border-left:1px solid var(--bone);padding-left:22px;margin-left:5px}
-  #case-studies .cs-time>li{padding:0 0 22px}
-  #case-studies .cs-time>li:last-child{padding-bottom:0}
-  #case-studies .cs-time>li::before{left:-26.5px;top:5px}
-  #case-studies .cs-levels>li:nth-child(2){padding-left:18px}
-  #case-studies .cs-levels>li:nth-child(3){padding-left:36px}
-}
-
-/* --- diagrams: real vector figure above 1000px, the same content as a
-       readable stacked layout below it (an SVG scaled to a phone column
-       would render its text at 4-5px) ------------------------------- */
-#case-studies .cs-arch .cs-svg{display:none}
-@media (min-width:1080px){
-  #case-studies .cs-arch .cs-svg{display:block;width:100%;height:auto;margin:2px 0 0}
-  #case-studies .cs-arch .cs-flowmini{display:none}
 }
