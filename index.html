@@ -1699,6 +1699,16 @@
 <p class="cs-question">Who may read, who may compute, and who may act?</p>
 <p>The foundation separates four things that are often collapsed into one. Protected source data stays where it is governed, and is read rather than copied around. Analytical processing happens in its own space, where a calculation can be rerun without touching an operational system. Governed outputs &mdash; the figures management actually reads &mdash; are published deliberately, with their definitions fixed. Operational authority to act on any of it stays with the business, outside the analytical layer entirely.</p>
 <p>That separation is what makes validation independent. A measurement produced inside the system being measured is not an independent check of it. Infrastructure specifics are not described here.</p>
+<figure class="cs-diagram cs-arch">
+<figcaption><span>Four things kept apart</span></figcaption>
+<ol class="cs-zones" aria-label="Protected source data, analytical processing, governed outputs and operational authority, kept separate">
+<li><span class="zn-n">Protected</span><p class="zn-t">Source data</p><p class="zn-d">Stays where it is governed. Read, not copied around.</p></li>
+<li><span class="zn-n">Analytical</span><p class="zn-t">Processing</p><p class="zn-d">Its own space, where a calculation can be rerun without touching an operational system.</p></li>
+<li><span class="zn-n">Published</span><p class="zn-t">Governed outputs</p><p class="zn-d">The figures management reads, released deliberately, with their definitions fixed.</p></li>
+<li><span class="zn-n">Reserved</span><p class="zn-t">Operational authority</p><p class="zn-d">The right to act stays with the business, outside the analytical layer entirely.</p></li>
+</ol>
+<p class="fig-note">The boundary that matters is the last one. A measurement produced inside the system it judges is not an independent check of it.</p>
+</figure>
 </div>
 </article>
 
@@ -1741,6 +1751,16 @@
 <section><h4>Override ledger</h4><p>Where a person departed from the model, recorded as its own act with its reason. Overrides are then measurable: how often, in which segments, and what followed them.</p></section>
 </div>
 <p class="cs-quote">Decision(t) &rarr; Outcome(t+n)</p>
+<figure class="cs-diagram cs-arch">
+<figcaption><span>What is recorded, and when</span></figcaption>
+<ol class="cs-time" aria-label="A decision recorded at the moment it is taken, outcomes recorded as they arrive, overrides recorded separately, and the join between them">
+<li><span class="tm-k">t</span><p class="tm-t">Decision recorded</p><p class="tm-d">Fixed at the moment it is taken.</p></li>
+<li><span class="tm-k">t + n</span><p class="tm-t">Outcomes arrive</p><p class="tm-d">Each dated as it becomes known.</p></li>
+<li><span class="tm-k">any t</span><p class="tm-t">Override recorded</p><p class="tm-d">Separately, as an act of its own.</p></li>
+<li class="tm-join"><span class="tm-k">join</span><p class="tm-t">On the case, and on time</p><p class="tm-d">Behaviour then, against what followed.</p></li>
+</ol>
+<p class="fig-note">Because each record carries its own date, the join can be taken as at any past moment. That is the difference between validating a model and summarising a portfolio.</p>
+</figure>
 <p>Joining the ledgers on the case and on time is what makes historical validation possible: the model&rsquo;s behaviour at the moment of decision can be compared against the outcomes that were observed afterwards, rather than against outcomes that have been summarised into the present. Note that this establishes association between decisions and subsequent outcomes under the recorded policy; it is not on its own a causal claim about what a different decision would have produced.</p>
 </div>
 </article>
@@ -1753,6 +1773,17 @@
 <p class="cs-quote">Before asking whether a model is right, the organisation must know whether the evidence used to judge it is reliable.</p>
 <p>The controls run before any metric is computed, and a failure stops the measurement rather than footnoting it. Missing data is identified and its extent reported rather than silently imputed. Duplicates are detected and resolved on the key, not on appearance. Figures are reconciled against the owning source, so the validation and the business agree on totals. Timing integrity is checked, because an outcome dated before the decision it belongs to is a defect, not a data point. Keys are verified to join the ledgers exactly once.</p>
 <p>What is measured is then captured as an evidence snapshot with its lineage, so the same window can be recomputed later and give the same answer. Reproducibility is the property that makes a validation result worth quoting six months after it was produced.</p>
+<figure class="cs-diagram cs-arch">
+<figcaption><span>The gate before any metric</span></figcaption>
+<ul class="cs-checks" aria-label="The checks that run before measurement">
+<li>Completeness</li><li>Duplicates, on the key</li><li>Reconciliation to source</li>
+<li>Timing integrity</li><li>Keys join exactly once</li><li>Totals</li>
+</ul>
+<div class="cs-fork">
+<section><span class="fk-n">All pass</span><p>The window is measured, and captured as an evidence snapshot with its lineage, so it recomputes later to the same answer.</p></section>
+<section><span class="fk-n">Any fails</span><p>The measurement stops. A defect is not carried into a result and footnoted.</p></section>
+</div>
+</figure>
 </div>
 </article>
 
@@ -1777,6 +1808,14 @@
 <h3 class="rtitle">From diagnostics to management intelligence</h3>
 <p class="cs-question">What does a risk committee need to see?</p>
 <p>Validation output that only a modeller can read does not govern anything. The Power BI layer presents model health as a management subject: one view of the current state, with the diagnostic detail one level beneath it and the evidence one level beneath that.</p>
+<figure class="cs-diagram cs-arch">
+<figcaption><span>Three depths, one subject</span></figcaption>
+<ol class="cs-levels" aria-label="Management view, diagnostic detail beneath it, evidence beneath that">
+<li><span class="lv-n">First</span><p class="lv-t">Model health</p><p class="lv-d">Where the model stands against its approved baseline, and what changed since the last window. Readable by someone who does not build models.</p></li>
+<li><span class="lv-n">Beneath it</span><p class="lv-t">Diagnostics</p><p class="lv-d">The confusion matrix, the precision and recall trade-off at the operating threshold, calibration, behaviour by score band, drift by period, overrides, stressed periods, origination route.</p></li>
+<li><span class="lv-n">Beneath that</span><p class="lv-t">Evidence</p><p class="lv-d">The rows, the window and the model version behind any figure on either level above.</p></li>
+</ol>
+</figure>
 <details class="cs-flow-details">
 <summary>The model-health views</summary>
 <div class="cs-mgrid">
@@ -1877,7 +1916,13 @@
 <h3 class="rtitle">Architecture beyond the model</h3>
 <p class="cs-question">Where does a risk model sit in a longer chain?</p>
 <p>The engagement is one instance of the chain this firm builds along. Human intent is made explicit as meaning; meaning is fixed in a representation; the representation determines what data is admissible; models estimate from that data; evidence records what the estimates led to; decisions are taken by people; outcomes are observed; and what is learned re-enters the chain at the top rather than only at the model.</p>
-<p class="cs-quote">Human intent &rarr; Meaning &rarr; Representation &rarr; Data &rarr; Models &rarr; Evidence &rarr; Decisions &rarr; Outcomes &rarr; Learning</p>
+<figure class="cs-diagram cs-arch">
+<figcaption><span>Where a risk model sits</span></figcaption>
+<ol class="cs-chain" aria-label="Human intent, meaning, representation, data, models, evidence, decisions, outcomes, learning">
+<li>Human intent</li><li>Meaning</li><li>Representation</li><li>Data</li><li>Models</li>
+<li>Evidence</li><li>Decisions</li><li>Outcomes</li><li>Learning</li>
+</ol>
+</figure>
 <p>Read in that order, the ledgers are not a reporting convenience. They are the link between <em>Decisions</em> and <em>Outcomes</em>, without which <em>Learning</em> has nothing to act on and the chain closes on itself at the model.</p>
 </div>
 </article>
