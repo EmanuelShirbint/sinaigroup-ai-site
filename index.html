@@ -1625,6 +1625,302 @@
 <div class="srows"><div class="cs-row"><div class="rnum" aria-hidden="true">01</div><div class="cs-body"><h3 class="rtitle">An integrated problem definition</h3><p>Three connected workstreams covering equipment reliability, demand peaks and network disruption.</p></div></div><div class="cs-row"><div class="rnum" aria-hidden="true">02</div><div class="cs-body"><h3 class="rtitle">Proposed architectures and workflows</h3><p>Expert-system and forecasting diagrams, data requirements, knowledge-engineering notes and resilience recommendations.</p></div></div><div class="cs-row"><div class="rnum" aria-hidden="true">03</div><div class="cs-body"><h3 class="rtitle">Technical notes and presentations</h3><p>Working materials prepared to explain the approaches and support the continuing pre-contract dialogue.</p></div></div></div><p class="cs-scope">The work shown comprises proposed architectures, technical notes and presentation materials prepared during these discussions. It does not report a completed deployment or measured operational results.</p>
 <div class="cs-actions"><a class="btn btn-o" href="#team">Meet the team →</a><a class="btn btn-o" href="#ai-platform">Explore our AI Platform →</a></div>
 </div></section>
+<section class="section">
+<div class="wrap">
+<span class="tag">Financial services &amp; investment</span>
+<h2 class="cs-heading">Governed AI for<br><span class="gold">financial risk intelligence.</span></h2>
+<p class="cs-intro">Model validation, evidence architecture and decision intelligence for one of Israel&rsquo;s largest investment and financial services companies. The client is not named here.</p>
+<p class="cs-intro">The engagement did not begin with a model. It began with a question the organisation could not answer from its existing systems: when a risk model made a decision some months ago, what actually happened afterwards &mdash; and is the model still behaving the way it behaved when it was approved?</p>
+<p class="cs-intro">Answering that reliably turned out to require an architecture rather than a report. Decisions had to be recorded as they were taken, outcomes had to be recorded as they arrived, the two had to be joined on a defensible key, and the evidence used to judge the model had to be reproducible months later. Only then does independent validation mean anything. What we built is that chain, and the management layer that reads it.</p>
+<dl class="cs-facts">
+<div><dt>Client</dt><dd>Confidential client &mdash; one of Israel&rsquo;s largest investment and financial services companies</dd></div>
+<div><dt>Industry</dt><dd>Financial services &amp; investment</dd></div>
+<div><dt>Scope</dt><dd>Model validation, evidence architecture, model-health intelligence and governance design</dd></div>
+</dl>
+<ul class="cs-tags">
+<li>SQL Server</li><li>Python</li><li>Power BI</li><li>Model validation</li><li>AI governance</li>
+</ul>
+<ul class="cs-jump" aria-label="Sections of this case">
+<li><a href="#fri-challenge">The challenge</a></li>
+<li><a href="#fri-approach">Approach &amp; architecture</a></li>
+<li><a href="#fri-evidence">Decision &rarr; outcome &rarr; evidence</a></li>
+<li><a href="#fri-validation">Independent validation</a></li>
+<li><a href="#fri-governance">Governance by design</a></li>
+<li><a href="#fri-value">Business value</a></li>
+</ul>
+</div>
+</section>
+
+<section class="section" id="fri-challenge">
+<div class="wrap">
+<span class="tag">The work</span>
+<h2 class="cs-heading">From model output<br><span class="gold">to governed decision.</span></h2>
+<div class="srows">
+
+<article class="cs-row">
+<div class="rnum" aria-hidden="true">01</div>
+<div class="cs-body">
+<h3 class="rtitle">The challenge</h3>
+<p class="cs-question">Is the model still right &mdash; and how would anyone know?</p>
+<p>A financial-risk environment does not hold still. Customer behaviour changes, the portfolio changes composition, channels and merchants come and go, and periods of stress arrive without warning. A model approved against one population is, quietly and without any error being raised, scored against a different one a year later.</p>
+<p>The organisation had scores and it had decisions. What it did not have was a dependable join between a decision taken at one moment and the outcome that followed months afterwards, held in a form that could be recomputed and audited. Without that join, model performance can be asserted but not demonstrated, deterioration is noticed late, and an override remains an opinion rather than a recorded act with consequences that can be studied.</p>
+<p><span class="cs-label">The requirement:</span> connect model decisions to observed outcomes, on evidence that survives being checked.</p>
+</div>
+</article>
+
+<article class="cs-row" id="fri-approach">
+<div class="rnum" aria-hidden="true">02</div>
+<div class="cs-body">
+<h3 class="rtitle">Our approach</h3>
+<p class="cs-question">What has to exist before validation means anything?</p>
+<p>Rather than replace the decision environment, we built a governed validation and control architecture around it. The operational systems keep doing what they do; alongside them sits a layer that records what was decided, gathers what followed, checks the quality of both, measures the model against that record, and presents the result to the people who carry the risk.</p>
+<p><span class="cs-label">Prepared:</span> Semantic risk layer, decision / outcome / override ledgers, reconciliation and data-quality controls, a Python validation engine, model-health analytics in Power BI, and an evidence trail behind every figure.</p>
+<figure class="cs-diagram cs-arch">
+<figcaption><span>Architecture overview</span></figcaption>
+<ol class="cs-stack" aria-label="Architecture overview, from operational data to human risk oversight">
+<li><span class="stg-n">Source</span><p class="stg-t">Operational data</p><p class="stg-d">Transactions, applications, decisions, repayments and portfolio state, read from the systems that own them.</p></li>
+<li><span class="stg-n">Meaning</span><p class="stg-t">Semantic risk layer</p><p class="stg-d">Operational rows are expressed as risk concepts &mdash; decisions, scores, bands, behaviour, events &mdash; with one agreed definition each.</p></li>
+<li><span class="stg-n">Record</span><p class="stg-t">Decision, outcome and override ledgers</p><p class="stg-d">What was decided, what followed, and where a human departed from the model, each kept as a dated record rather than a current-state field.</p></li>
+<li><span class="stg-n">Control</span><p class="stg-t">Data quality &amp; reconciliation</p><p class="stg-d">Completeness, duplication, key integrity, timing and totals are checked against the source before anything is measured.</p></li>
+<li><span class="stg-n">Measure</span><p class="stg-t">Python validation engine</p><p class="stg-d">Discrimination, calibration, drift and score-band behaviour computed on a fixed validation window from the ledgers.</p></li>
+<li><span class="stg-n">Interpret</span><p class="stg-t">Model performance &amp; drift analytics</p><p class="stg-d">Results compared against the model&rsquo;s own approved baseline and against earlier windows, so change is visible as change.</p></li>
+<li><span class="stg-n">Present</span><p class="stg-t">Power BI model health</p><p class="stg-d">One management view of how the model is behaving, with the diagnostic detail one level below it.</p></li>
+<li><span class="stg-n">Prove</span><p class="stg-t">Evidence &amp; audit trail</p><p class="stg-d">Every figure traceable to the rows, the window and the model version that produced it, and reproducible later.</p></li>
+<li><span class="stg-n">Decide</span><p class="stg-t">Human risk oversight</p><p class="stg-d">The people accountable for risk read the evidence and decide. The architecture informs that decision; it does not take it.</p></li>
+</ol>
+</figure>
+</div>
+</article>
+
+<article class="cs-row">
+<div class="rnum" aria-hidden="true">03</div>
+<div class="cs-body">
+<h3 class="rtitle">A controlled data foundation</h3>
+<p class="cs-question">Who may read, who may compute, and who may act?</p>
+<p>The foundation separates four things that are often collapsed into one. Protected source data stays where it is governed, and is read rather than copied around. Analytical processing happens in its own space, where a calculation can be rerun without touching an operational system. Governed outputs &mdash; the figures management actually reads &mdash; are published deliberately, with their definitions fixed. Operational authority to act on any of it stays with the business, outside the analytical layer entirely.</p>
+<p>That separation is what makes validation independent. A measurement produced inside the system being measured is not an independent check of it. Infrastructure specifics are not described here.</p>
+</div>
+</article>
+
+<article class="cs-row">
+<div class="rnum" aria-hidden="true">04</div>
+<div class="cs-body">
+<h3 class="rtitle">The semantic risk layer</h3>
+<p class="cs-question">Does everyone mean the same thing by the same word?</p>
+<p>Before anything can be measured consistently, the vocabulary has to be settled. The semantic layer gives one definition to each concept the validation depends on, and every downstream figure is computed from those definitions rather than from a re-derivation in a report.</p>
+<div class="cs-mgrid">
+<section><h4>What the layer defines</h4>
+<ul>
+<li>Decisions &mdash; what was approved, declined or referred, and when</li>
+<li>Outcomes &mdash; what subsequently happened to that case</li>
+<li>Scores and score bands &mdash; the model&rsquo;s output and its agreed cut points</li>
+<li>Repayment behaviour &mdash; the observed conduct over time</li>
+<li>Risk events &mdash; the occurrences the model is meant to anticipate</li>
+</ul></section>
+<section><h4>And the context it is measured in</h4>
+<ul>
+<li>Overrides &mdash; where human judgement departed from the model</li>
+<li>Model versions &mdash; which model produced which decision</li>
+<li>Portfolio segments &mdash; the populations performance is read within</li>
+<li>Validation windows &mdash; the fixed periods a result belongs to</li>
+<li>Evidence &mdash; the rows standing behind each published figure</li>
+</ul></section>
+</div>
+</div>
+</article>
+
+<article class="cs-row" id="fri-evidence">
+<div class="rnum" aria-hidden="true">05</div>
+<div class="cs-body">
+<h3 class="rtitle">Decision &rarr; outcome &rarr; evidence</h3>
+<p class="cs-question">What did we decide, and what actually happened next?</p>
+<p>This is the centre of the engagement. Three ledgers are kept, and they are kept as history rather than as current state.</p>
+<div class="cs-mgrid">
+<section><h4>Decision ledger</h4><p>Every decision as it was taken: the case, the moment, the score and band, the model version, and the action that followed. A decision is never overwritten by a later one.</p></section>
+<section><h4>Outcome ledger</h4><p>What was subsequently observed for that same case, dated as it arrived. Outcomes accumulate; the record of when each became known is kept, because it determines what could have been known at any earlier point.</p></section>
+<section><h4>Override ledger</h4><p>Where a person departed from the model, recorded as its own act with its reason. Overrides are then measurable: how often, in which segments, and what followed them.</p></section>
+</div>
+<p class="cs-quote">Decision(t) &rarr; Outcome(t+n)</p>
+<p>Joining the ledgers on the case and on time is what makes historical validation possible: the model&rsquo;s behaviour at the moment of decision can be compared against the outcomes that were observed afterwards, rather than against outcomes that have been summarised into the present. Note that this establishes association between decisions and subsequent outcomes under the recorded policy; it is not on its own a causal claim about what a different decision would have produced.</p>
+</div>
+</article>
+
+<article class="cs-row">
+<div class="rnum" aria-hidden="true">06</div>
+<div class="cs-body">
+<h3 class="rtitle">Data quality before AI</h3>
+<p class="cs-question">Is the evidence itself sound?</p>
+<p class="cs-quote">Before asking whether a model is right, the organisation must know whether the evidence used to judge it is reliable.</p>
+<p>The controls run before any metric is computed, and a failure stops the measurement rather than footnoting it. Missing data is identified and its extent reported rather than silently imputed. Duplicates are detected and resolved on the key, not on appearance. Figures are reconciled against the owning source, so the validation and the business agree on totals. Timing integrity is checked, because an outcome dated before the decision it belongs to is a defect, not a data point. Keys are verified to join the ledgers exactly once.</p>
+<p>What is measured is then captured as an evidence snapshot with its lineage, so the same window can be recomputed later and give the same answer. Reproducibility is the property that makes a validation result worth quoting six months after it was produced.</p>
+</div>
+</article>
+
+<article class="cs-row" id="fri-validation">
+<div class="rnum" aria-hidden="true">07</div>
+<div class="cs-body">
+<h3 class="rtitle">Independent model validation</h3>
+<p class="cs-question">Is the model separating, is it honest about its confidence, and has the world moved?</p>
+<p>The validation engine computes a standard set of measures, but the measures are not the point &mdash; they answer four distinct questions, and confusing them is how model risk is missed.</p>
+<div class="cs-mgrid">
+<section><h4>Discrimination</h4><p>Can the model tell the riskier cases from the safer ones at all? Read from the confusion matrix, accuracy, precision, recall, F1, ROC-AUC, PR-AUC and the KS statistic. Precision and recall are read together, because a model can look accurate while missing most of what matters in an imbalanced portfolio.</p></section>
+<section><h4>Calibration</h4><p>When the model says a case carries a given level of risk, does that level occur in practice? A model can rank well and still be systematically over- or under-confident, which is what breaks decisions taken against a fixed threshold.</p></section>
+<section><h4>Score-band performance</h4><p>Performance is examined band by band, not only in aggregate. Decisions are taken on bands, so a model that holds up overall while degrading in the band where the cut point sits is a live operational problem.</p></section>
+<section><h4>Drift</h4><p>PSI and CSI compare the current population and its characteristics against the baseline the model was approved on. Drift is not itself a failure; it is the signal that the conditions of approval no longer hold and the other three groups need rereading.</p></section>
+</div>
+</div>
+</article>
+
+<article class="cs-row">
+<div class="rnum" aria-hidden="true">08</div>
+<div class="cs-body">
+<h3 class="rtitle">From diagnostics to management intelligence</h3>
+<p class="cs-question">What does a risk committee need to see?</p>
+<p>Validation output that only a modeller can read does not govern anything. The Power BI layer presents model health as a management subject: one view of the current state, with the diagnostic detail one level beneath it and the evidence one level beneath that.</p>
+<details class="cs-flow-details">
+<summary>The model-health views</summary>
+<div class="cs-mgrid">
+<section><h4>Executive model health</h4><p>Current standing against the approved baseline, and what changed since the last window.</p></section>
+<section><h4>Confusion matrix</h4><p>The four outcomes of classification in the terms the business uses for them.</p></section>
+<section><h4>Precision / recall / F1</h4><p>Read as a trade-off at the operating threshold rather than as separate scores.</p></section>
+<section><h4>Calibration</h4><p>Predicted level against observed rate, so over- and under-confidence are visible by region of the score.</p></section>
+<section><h4>Score-band performance</h4><p>Behaviour in each band, with the decision cut points marked.</p></section>
+<section><h4>PSI / CSI drift</h4><p>Population and characteristic movement against baseline, by period.</p></section>
+<section><h4>Override monitoring</h4><p>Where human judgement departs from the model, and what followed those departures.</p></section>
+<section><h4>Crisis-mode analysis</h4><p>Behaviour isolated to stressed periods, which is when a model is most relied upon and least like its training conditions.</p></section>
+<section><h4>Merchant / channel segmentation</h4><p>Performance by origination route, where concentrated deterioration usually appears first.</p></section>
+<section><h4>Evidence log</h4><p>The rows, window and model version behind any figure on any of the views above.</p></section>
+</div>
+<p style="max-width:840px">The views are conceptual designs of the model-health layer. No client dashboard, figure or portfolio value is reproduced anywhere in this case.</p>
+</details>
+</div>
+</article>
+
+<article class="cs-row" id="fri-governance">
+<div class="rnum" aria-hidden="true">09</div>
+<div class="cs-body">
+<h3 class="rtitle">Governance by design</h3>
+<p class="cs-question">Where does the machine stop and the institution begin?</p>
+<p class="cs-quote">AI can calculate, monitor, predict and explain. Human authority remains explicit.</p>
+<p>Governance here is not a policy document laid over a system; it is the shape of the system. Each link in the chain answers one question and hands on to the next, and the last link is a person.</p>
+<figure class="cs-diagram cs-arch">
+<figcaption><span>The responsibility chain</span></figcaption>
+<ol class="cs-stack" aria-label="Responsibility chain from data to human authority">
+<li><span class="stg-n">Data</span><p class="stg-t">What happened?</p><p class="stg-d">The recorded facts, reconciled to their source.</p></li>
+<li><span class="stg-n">Model</span><p class="stg-t">What is the estimated risk?</p><p class="stg-d">An estimate, carrying its version and the population it was approved on.</p></li>
+<li><span class="stg-n">Validation</span><p class="stg-t">Is the model behaving correctly?</p><p class="stg-d">Measured independently of the model, against outcomes it did not see.</p></li>
+<li><span class="stg-n">AI &amp; analytics</span><p class="stg-t">What requires attention?</p><p class="stg-d">Deterioration, drift and concentration surfaced as findings, with their evidence attached.</p></li>
+<li><span class="stg-n">Policy</span><p class="stg-t">What actions are permitted?</p><p class="stg-d">The institution&rsquo;s own limits, which the analysis informs and does not set.</p></li>
+<li><span class="stg-n">Human authority</span><p class="stg-t">What decision should be taken?</p><p class="stg-d">Taken by the accountable person, recorded, and &mdash; through the override ledger &mdash; itself open to later examination.</p></li>
+</ol>
+</figure>
+</div>
+</article>
+
+<article class="cs-row">
+<div class="rnum" aria-hidden="true">10</div>
+<div class="cs-body">
+<h3 class="rtitle">From monitoring to predictive intelligence</h3>
+<p class="cs-question">How would a better model prove that it is better?</p>
+<p>Once decisions and outcomes are held in a form that can be replayed, the same machinery that validates the incumbent can adjudicate a challenger. That is the natural next capability of the architecture rather than something already delivered.</p>
+<figure class="cs-diagram cs-arch">
+<figcaption><span>Champion / challenger evaluation &mdash; a future capability</span></figcaption>
+<ol class="cs-stack" aria-label="Champion and challenger evaluation, from the existing model to human approval">
+<li><span class="stg-n">Incumbent</span><p class="stg-t">Existing model</p><p class="stg-d">The model in production, with its approved baseline.</p>
+<ul class="cs-branch"><li>Baseline</li><li>Logistic regression</li><li>Random forest</li><li>Further challengers</li></ul></li>
+<li><span class="stg-n">Measure</span><p class="stg-t">Independent validation</p><p class="stg-d">Every candidate scored on the same historical outcomes, the same windows and the same criteria.</p></li>
+<li><span class="stg-n">Compare</span><p class="stg-t">Evidence comparison</p><p class="stg-d">Differences read as paired comparisons on identical evidence, with discrimination, calibration, drift and band behaviour all reported &mdash; not one headline figure.</p></li>
+<li><span class="stg-n">Authorise</span><p class="stg-t">Human approval</p><p class="stg-d">A change of model is an institutional decision, taken on the evidence by the people accountable for it.</p></li>
+</ol>
+</figure>
+<p class="cs-quote">A more sophisticated model is not automatically a better model. A challenger must demonstrate measurable improvement against the same historical outcomes and agreed validation criteria.</p>
+<p>No challenger has been adopted, and none is claimed to have outperformed the incumbent.</p>
+</div>
+</article>
+
+<article class="cs-row" id="fri-value">
+<div class="rnum" aria-hidden="true">11</div>
+<div class="cs-body">
+<h3 class="rtitle">Business value</h3>
+<p class="cs-question">What does the organisation get that it did not have?</p>
+<div class="cs-mgrid">
+<section><h4>Risk visibility</h4><p>Model behaviour is a standing, comparable measurement rather than a periodic assertion.</p></section>
+<section><h4>Earlier investigation</h4><p>Drift and band-level deterioration surface as findings with evidence attached, which shortens the distance between a signal and someone looking at it.</p></section>
+<section><h4>Operational leverage</h4><p>Validation that used to be assembled by hand for each review runs as a defined process against a fixed window.</p></section>
+<section><h4>Governance</h4><p>The boundary between calculation, policy and authority is explicit in the architecture, not only in a document.</p></section>
+<section><h4>Auditability</h4><p>Any published figure can be traced to its rows, window and model version, and recomputed.</p></section>
+<section><h4>AI readiness</h4><p>The evidence base a challenger model would have to be judged on exists before the challenger does.</p></section>
+</div>
+<p class="cs-quote">Financial impact is measured against actual portfolio outcomes rather than assumed from generic industry benchmarks.</p>
+</div>
+</article>
+
+<article class="cs-row">
+<div class="rnum" aria-hidden="true">12</div>
+<div class="cs-body">
+<h3 class="rtitle">Technology foundation</h3>
+<p class="cs-question">What is it built on?</p>
+<div class="cs-mgrid">
+<section><h4>SQL Server</h4><p>Enterprise data foundation.</p></section>
+<section><h4>Python</h4><p>Validation, analytics and machine learning.</p></section>
+<section><h4>Power BI</h4><p>Model-health and management intelligence.</p></section>
+<section><h4>Enterprise automation</h4><p>Controlled execution and monitoring.</p></section>
+<section><h4>Evidence ledgers</h4><p>Decision, outcome and override traceability.</p></section>
+</div>
+<p class="cs-quote">The architecture is conceptually vendor-neutral: implementation technologies can evolve without changing the governance model.</p>
+</div>
+</article>
+
+<article class="cs-row">
+<div class="rnum" aria-hidden="true">13</div>
+<div class="cs-body">
+<h3 class="rtitle">Architecture beyond the model</h3>
+<p class="cs-question">Where does a risk model sit in a longer chain?</p>
+<p>The engagement is one instance of the chain this firm builds along. Human intent is made explicit as meaning; meaning is fixed in a representation; the representation determines what data is admissible; models estimate from that data; evidence records what the estimates led to; decisions are taken by people; outcomes are observed; and what is learned re-enters the chain at the top rather than only at the model.</p>
+<p class="cs-quote">Human intent &rarr; Meaning &rarr; Representation &rarr; Data &rarr; Models &rarr; Evidence &rarr; Decisions &rarr; Outcomes &rarr; Learning</p>
+<p>Read in that order, the ledgers are not a reporting convenience. They are the link between <em>Decisions</em> and <em>Outcomes</em>, without which <em>Learning</em> has nothing to act on and the chain closes on itself at the model.</p>
+</div>
+</article>
+
+<article class="cs-row">
+<div class="rnum" aria-hidden="true">14</div>
+<div class="cs-body">
+<h3 class="rtitle">Strategic direction</h3>
+<p class="cs-question">What does the architecture make possible next?</p>
+<p>The following are architectural directions the foundation supports. They are not delivered capabilities and nothing here reports a deployment.</p>
+<div class="cs-mgrid">
+<section><h4>Prediction and early warning</h4><ul>
+<li>Repayment-risk prediction</li>
+<li>Early-warning intelligence</li>
+<li>Collection prioritisation</li>
+<li>Merchant and channel risk monitoring</li>
+</ul></section>
+<section><h4>Governed model evolution</h4><ul>
+<li>Champion / challenger evaluation</li>
+<li>Governed AI explanation</li>
+<li>Controlled LLM-based assistance</li>
+<li>Continuous model monitoring</li>
+<li>Evidence-driven policy review</li>
+</ul></section>
+</div>
+</div>
+</article>
+
+</div>
+</div>
+</section>
+
+<section class="section">
+<div class="wrap">
+<span class="tag">Conclusion</span>
+<h2 class="cs-heading">From model output to<br><span class="gold">governed decision intelligence.</span></h2>
+<p class="cs-intro">The organisation began with scores and ended with an account of them: what was decided, what followed, whether the model that produced the decision still behaves as approved, and who is answerable for what happens next.</p>
+<p class="cs-quote">The objective is not simply to add AI to an existing process. The objective is to build the architecture that makes intelligence measurable, explainable, governable and accountable.</p>
+<p class="cs-intro">Human intent &rarr; Data &rarr; Models &rarr; Evidence &rarr; Decisions &rarr; Outcomes &rarr; Learning</p>
+<p class="cs-scope">This case describes architecture, methodology and capability. It does not report measured financial results, model-performance improvements or portfolio figures, and no client dashboard or value is reproduced. The client is not identified.</p>
+<p class="cs-intro"><strong>SINAIGROUP-AI &mdash; Governed AI for high-stakes environments.</strong></p>
+</div>
+</section>
 <section class="cta"><div class="wrap"><span class="tag" style="justify-content:center;color:var(--bg)">Work with us</span>
 <h2 style="margin-top:16px">A similar<br>decision problem?</h2><p>Tell us about your equipment, demand or network challenge. We can discuss the evidence, the available options and a practical consulting scope.</p><a href="#contact" class="btn btn-p">Discuss your project →</a>
 </div></section></main>
