@@ -1036,3 +1036,18 @@ body:has(#main-case-studies:target) #case-studies{display:block!important}
   .cta h2{font-size:clamp(1.7rem,6.6vw,2.6rem)}
   .hero-num{font-size:clamp(2.6rem,8vw,4rem)}
 }
+
+/* ===== mobile text pass 2026-09-23: sizes that fit a phone column ===== */
+@media(max-width:480px){
+  /* the domain line under the hero: a subtitle, not a second headline */
+  #home .hdomains{font-size:1.25rem;line-height:1.1}
+  /* list-item titles were larger than some section headings */
+  .rtitle:not(.h-sub){font-size:1.15rem;line-height:1.2}
+  #rnd .rtitle:not(.h-sub),#architecture .prose .srow h3.rtitle:not(.h-sub),
+  #case-studies .rtitle:not(.h-sub){font-size:1.15rem;line-height:1.2}
+  /* lead paragraphs sit one step above body copy, not two */
+  .prose .lead{font-size:1.1rem;line-height:1.55}
+  .cta h2{font-size:clamp(1.5rem,6.2vw,2.4rem)}
+  /* team bios were the smallest text on the site */
+  #team .mem p{font-size:.95rem;line-height:1.55}
+}
