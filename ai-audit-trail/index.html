@@ -1,0 +1,107 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Audit Trail for High-Stakes Decisions | SINAIGROUP-AI</title>
+<meta name="description" content="Design an AI decision audit trail that preserves evidence, model or agent state, human authority, action and outcome so consequential decisions can be reconstructed later.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.sinaigroup-ai.com/ai-audit-trail/">
+<meta property="og:type" content="website"><meta property="og:site_name" content="SINAIGROUP-AI">
+<meta property="og:locale" content="en"><meta property="og:url" content="https://www.sinaigroup-ai.com/ai-audit-trail/">
+<meta property="og:title" content="AI Audit Trail for High-Stakes Decisions | SINAIGROUP-AI">
+<meta property="og:description" content="Preserve evidence, model or agent state, human authority, action and outcome so consequential AI-supported decisions can be reconstructed later.">
+<meta property="og:image" content="https://www.sinaigroup-ai.com/assets/og-cover.png">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="AI Audit Trail for High-Stakes Decisions | SINAIGROUP-AI">
+<meta name="twitter:description" content="Preserve evidence, model or agent state, human authority, action and outcome so consequential AI-supported decisions can be reconstructed later.">
+<meta name="twitter:image" content="https://www.sinaigroup-ai.com/assets/og-cover.png">
+<meta name="theme-color" content="#f3f1ea">
+<link rel="stylesheet" href="../assets/site.css">
+<script type="application/ld+json">{
+"@context":"https://schema.org",
+"@type":"FAQPage",
+"mainEntity":[
+{"@type":"Question","name":"What is an AI audit trail?","acceptedAnswer":{"@type":"Answer","text":"An AI audit trail is a reconstructable record of the evidence, system state, proposed decision, checks, authority, action and outcome surrounding an AI-supported decision."}},
+{"@type":"Question","name":"Why is logging model output not enough?","acceptedAnswer":{"@type":"Answer","text":"Model output alone does not show which evidence was available, what assumptions were checked, who had authority, what downstream action occurred or what outcome followed."}},
+{"@type":"Question","name":"What should an AI decision record contain?","acceptedAnswer":{"@type":"Answer","text":"A useful record can include evidence provenance, model or agent version, relevant configuration, proposed decision, counter-evidence, evaluation, human approval or rejection, resulting action and observable outcome."}}
+]}</script>
+</head>
+<body class="dpage">
+<a class="skip-link" href="#main">Skip to content</a>
+<header><div class="wrap nav">
+<a href="../" class="logo" aria-label="SINAIGROUP-AI — home"><img src="../assets/img/2a863839.png" alt="SINAIGROUP-AI"></a>
+<nav class="nav-links" id="nav-links" aria-label="Main"><a href="../">Home</a><a href="../ai-decision-assurance/">AI Decision Assurance</a><a href="../agentic-ai-governance/">Agentic AI Governance</a><a href="../financial-services/">Financial Services</a><a href="../#contact">Contact</a></nav>
+<a href="../#contact" class="btn btn-p demo-btn" style="padding:10px 18px">Discuss</a>
+<button class="burger" id="brg" type="button" aria-label="Open main menu" aria-expanded="false" aria-controls="nav-links">&#9776;</button>
+</div></header>
+<main id="main">
+<section class="phead"><div class="wrap">
+<span class="tag">AI Audit Trail</span>
+<h1 style="margin-top:16px">Reconstruct the decision,<br><span class="gold">not just the model output.</span></h1>
+<p class="hdomains">Evidence. System state. Human authority. Action. Outcome.</p>
+<p class="hlead">A consequential AI-supported decision should be explainable later from a durable record of what was known, what was proposed, what challenged it, who accepted it and what action followed.</p>
+<div class="hactions"><a class="btn btn-p" href="../#contact">Discuss one decision record &rarr;</a><a class="btn btn-o" href="../ai-decision-assurance/">AI Decision Assurance &rarr;</a></div>
+</div></section>
+
+<section class="section"><div class="wrap">
+<span class="tag">Why logs are not enough</span>
+<h2 class="dh2">A technical log is not<br><span class="gold">a governed decision record</span></h2>
+<div class="prose" style="margin-top:26px">
+<p>A model response can be logged perfectly and still leave the organisation unable to answer the questions that matter: which evidence was available at the time, whether the premises were current, what counter-evidence was considered, who had authority, which action was actually executed and what happened afterwards.</p>
+<p>An audit trail for consequential AI therefore has to join technical state with decision context and authority.</p>
+</div>
+</div></section>
+
+<section class="section"><div class="wrap">
+<span class="tag">Minimum record</span>
+<h2 class="dh2">What should be<br><span class="gold">preserved</span></h2>
+<div class="disgrid">
+<div class="discard"><h3>Evidence provenance</h3><p>Source, timestamp, version and the evidence materially used by the decision.</p></div>
+<div class="discard"><h3>System state</h3><p>Relevant model, agent, prompt, policy, tool and configuration state.</p></div>
+<div class="discard"><h3>Proposal</h3><p>The recommendation, classification, prioritisation or proposed action.</p></div>
+<div class="discard"><h3>Challenge</h3><p>Premise checks, counter-evidence, uncertainty and failure conditions considered.</p></div>
+<div class="discard"><h3>Authority</h3><p>Who accepted, rejected, escalated or stopped the proposal, or which pre-authorised boundary applied.</p></div>
+<div class="discard"><h3>Action &amp; outcome</h3><p>What changed, when it changed and the observable result that followed.</p></div>
+</div>
+</div></section>
+
+<section class="section"><div class="wrap">
+<span class="tag">Design principle</span>
+<h2 class="dh2">Record the chain<br><span class="gold">as it happens</span></h2>
+<div class="prose" style="margin-top:26px">
+<p>Reconstructability is strongest when the decision record is created as part of the workflow rather than assembled manually after an incident or review.</p>
+<p>The record should be inspectable without implying that every data element must be duplicated into a new system. References, immutable identifiers, version binding and provenance can preserve the chain while source data remains in the systems that already own it.</p>
+</div>
+</div></section>
+
+<section class="section"><div class="wrap">
+<span class="tag">The use case</span>
+<h2 class="dh2">Decision &rarr; action &rarr;<br><span class="gold">outcome</span></h2>
+<div class="prose" style="margin-top:26px">
+<p>For model validation, risk oversight, claims, underwriting, fraud intervention, agentic workflows or another consequential process, the useful question is not only “what did the model say?” It is “what decision was taken, under what evidence and authority, what action followed and what outcome later became observable?”</p>
+<p>That chain creates a basis for validation, incident review, governance oversight and learning.</p>
+</div>
+</div></section>
+
+<section class="section"><div class="wrap">
+<span class="tag">FAQ</span>
+<h2 class="dh2">AI audit trails<br><span class="gold">in plain language</span></h2>
+<div class="prose" style="margin-top:26px">
+<h3>What is an AI audit trail?</h3><p>A reconstructable record of the evidence, system state, proposed decision, checks, authority, action and outcome surrounding an AI-supported decision.</p>
+<h3>Why is logging model output not enough?</h3><p>Because model output alone does not show which evidence was available, what assumptions were checked, who had authority, what downstream action occurred or what outcome followed.</p>
+<h3>What should an AI decision record contain?</h3><p>Evidence provenance, relevant model or agent state, proposed decision, counter-evidence, evaluation, human approval or rejection, resulting action and observable outcome.</p>
+</div>
+</div></section>
+
+<section class="section cta"><div class="wrap">
+<span class="tag">Start here</span>
+<h2 class="dh2">Pick one consequential decision.<br><span class="gold">Make the record reconstructable.</span></h2>
+<p class="sub dsub">We can map the minimum decision record around an existing workflow without replacing the systems that already own the data or the business authority.</p>
+<p class="hactions" style="margin-top:26px"><a class="btn btn-p" href="../#contact">Start the conversation &rarr;</a></p>
+</div></section>
+</main>
+<footer><div class="wrap"><div class="foot">
+<span class="logo"><img src="../assets/img/2a863839.png" alt="SINAIGROUP-AI"></span>
+<nav class="foot-links" aria-label="Footer"><a href="../">Home</a><a href="../ai-decision-assurance/">AI Decision Assurance</a><a href="../agentic-ai-governance/">Agentic AI Governance</a><a href="../ai-audit-trail/">AI Audit Trail</a><a href="../financial-services/">Financial Services</a><a href="../#contact">Contact</a></nav>
+<span class="copy">Governed AI for high-stakes regulated domains &middot; SINAIGROUP AI LTD &middot; Company No. 517382610 &middot; Israel<br>&copy; 2026 SINAIGROUP AI LTD. All rights reserved.</span>
+</div></div></footer>
+<script>(function(){var b=document.getElementById('brg'),h=document.querySelector('header');if(!b||!h)return;b.addEventListener('click',function(){var o=h.classList.toggle('open');b.setAttribute('aria-expanded',o?'true':'false');});})();</script>
+</body></html>
