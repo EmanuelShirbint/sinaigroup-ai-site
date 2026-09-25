@@ -1,0 +1,29 @@
+# SINAIGROUP-AI
+
+> Governed AI and AI Decision Assurance for high-stakes decisions.
+
+SINAIGROUP-AI designs the governed decision layer around existing AI, models and agents. The focus is evidence provenance, premise verification, counter-evidence, Human Acceptance Authority, permitted action boundaries, evaluation and auditable decision records.
+
+## Commercial truth
+
+- No signed client contracts are claimed.
+- No production deployments are claimed.
+- No certifications are claimed.
+- Pre-contract technical work is labelled as such.
+- Architecture and methodology pages may describe reference designs rather than deployed systems.
+
+## Primary pages
+
+- [AI Decision Assurance](https://www.sinaigroup-ai.com/ai-decision-assurance/)
+- [Financial Services](https://www.sinaigroup-ai.com/financial-services/)
+- [Healthcare](https://www.sinaigroup-ai.com/healthcare/)
+- [Critical Infrastructure](https://www.sinaigroup-ai.com/critical-infrastructure/)
+- [Home](https://www.sinaigroup-ai.com/)
+
+## Core decision path
+
+Evidence -> Model / AI / Agent -> Premise Verification -> Counter-Evidence -> Evaluation -> Human Acceptance Authority -> Permitted Action Boundary -> Action -> Governed Decision Record -> Outcome / Learning
+
+## Boundaries
+
+SINAIGROUP-AI does not claim regulatory certification, legal advice, guaranteed compliance, guaranteed model performance, or transfer of business authority to AI.
