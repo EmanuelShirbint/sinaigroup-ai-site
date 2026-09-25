@@ -17,6 +17,7 @@ SINAIGROUP-AI designs the governed decision layer around existing AI, models and
 - [AI Decision Assurance](https://www.sinaigroup-ai.com/ai-decision-assurance/)
 - [Agentic AI Governance](https://www.sinaigroup-ai.com/agentic-ai-governance/)
 - [AI Audit Trail](https://www.sinaigroup-ai.com/ai-audit-trail/)
+- [Human Authority in AI](https://www.sinaigroup-ai.com/human-authority-ai/)
 - [Financial Services](https://www.sinaigroup-ai.com/financial-services/)
 - [Healthcare](https://www.sinaigroup-ai.com/healthcare/)
 - [Critical Infrastructure](https://www.sinaigroup-ai.com/critical-infrastructure/)
