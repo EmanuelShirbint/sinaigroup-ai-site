@@ -1074,3 +1074,15 @@ body:has(#main-case-studies:target) #case-studies{display:block!important}
   #algorithms .dfig{margin-top:20px;margin-left:-32px;margin-right:-32px;width:auto;max-width:none}
   #algorithms .dfig figcaption{padding:0 32px}
 }
+
+
+/* Diagrams on the landing pages — added 2026-09-26, scoped to .dpage .dfig,
+   mirrors the existing #algorithms .dfig block. Additive only. */
+.dpage .dfig{margin:26px 0 0;padding:0;width:min(1176px,calc(100vw - 96px));max-width:none}
+.dpage .dfig>a{display:block;border:0;background:transparent;text-decoration:none;box-shadow:none}
+.dpage .dfig img{display:block;width:100%;height:auto}
+.dpage .dfig figcaption{margin-top:8px;font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+@media(max-width:760px){
+  .dpage .dfig{margin-top:20px;margin-left:-32px;margin-right:-32px;width:auto;max-width:none}
+  .dpage .dfig figcaption{padding:0 32px}
+}
