@@ -1086,3 +1086,12 @@ body:has(#main-case-studies:target) #case-studies{display:block!important}
   .dpage .dfig{margin-top:20px;margin-left:-32px;margin-right:-32px;width:auto;max-width:none}
   .dpage .dfig figcaption{padding:0 32px}
 }
+
+/* Centering inside the landing-page CTA — added 2026-09-27.
+   .dpage .dh2 and .dpage .hactions were written for the LEFT-aligned page
+   heads; inside the centred .cta they kept their left behaviour, so the
+   headline box (max-width:900px, no auto margins) and the flex button
+   (justify-content default flex-start) sat 138px / 115px left of centre.
+   Scoped to .cta only — left-aligned .hactions elsewhere are untouched. */
+.dpage .cta .dh2{margin-inline:auto}
+.dpage .cta .hactions{justify-content:center}
