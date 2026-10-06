@@ -697,23 +697,16 @@
 
     <p>Fuzzy modelling is built on fuzzy set theory, and applying it requires the boundaries of the relevant sets to be defined. Soft Regression — approach 01 above — carries several advantages over conventional multivariate regression, and they matter most where the explanatory variables are strongly interdependent.</p>
 
-    <h4>Reliable relative importance</h4>
-    <p>Soft Regression produces stable weights that reflect the relative importance of the explanatory variables. Conventional regression often yields unstable or unreliable estimates of those weights.</p>
-
-    <h4>Consistency under model modification</h4>
-    <p>The significance of an explanatory variable does not change when other variables are added to or removed from the model. In multivariate regression such modifications can alter the estimated effects of the remaining variables sharply.</p>
-
-    <h4>No independence assumption</h4>
-    <p>Explanatory variables are not required to be independent, which matters wherever interdependence is unavoidable.</p>
-
-    <h4>Robustness through logical integrity</h4>
-    <p>The method does not face the technical failures that can distort conventional regression. Errors arise only where a model is specified against common sense, or where illogical membership functions are used in normalisation. As long as the construction stays logically coherent and transparent, the results hold. Unrealistic assumptions are not acceptable, and normalisation has to be explained and grounded in real-world reasoning.</p>
-
-    <h4>No distributional requirement</h4>
-    <p>No particular data distribution is assumed, and no other restrictive condition is imposed.</p>
-
-    <h4>Outliers are kept</h4>
-    <p>The method is not sensitive to outliers, so no data point has to be deleted.</p>
+  </div>
+  <div class="srows">
+    <div class="srow rv ordrow" data-ord-head="row-title"><div class="rnum ord">01</div><div><h3 class="rtitle">Reliable relative importance</h3><div class="rsub">Soft Regression produces stable weights that reflect the relative importance of the explanatory variables. Conventional regression often yields unstable or unreliable estimates of those weights.</div></div></div>
+    <div class="srow rv ordrow" data-ord-head="row-title"><div class="rnum ord">02</div><div><h3 class="rtitle">Consistency under model modification</h3><div class="rsub">The significance of an explanatory variable does not change when other variables are added to or removed from the model. In multivariate regression such modifications can alter the estimated effects of the remaining variables sharply.</div></div></div>
+    <div class="srow rv ordrow" data-ord-head="row-title"><div class="rnum ord">03</div><div><h3 class="rtitle">No independence assumption</h3><div class="rsub">Explanatory variables are not required to be independent, which matters wherever interdependence is unavoidable.</div></div></div>
+    <div class="srow rv ordrow" data-ord-head="row-title"><div class="rnum ord">04</div><div><h3 class="rtitle">Robustness through logical integrity</h3><div class="rsub">The method does not face the technical failures that can distort conventional regression. Errors arise only where a model is specified against common sense, or where illogical membership functions are used in normalisation. As long as the construction stays logically coherent and transparent, the results hold. Unrealistic assumptions are not acceptable, and normalisation has to be explained and grounded in real-world reasoning.</div></div></div>
+    <div class="srow rv ordrow" data-ord-head="row-title"><div class="rnum ord">05</div><div><h3 class="rtitle">No distributional requirement</h3><div class="rsub">No particular data distribution is assumed, and no other restrictive condition is imposed.</div></div></div>
+    <div class="srow rv ordrow" data-ord-head="row-title"><div class="rnum ord">06</div><div><h3 class="rtitle">Outliers are kept</h3><div class="rsub">The method is not sensitive to outliers, so no data point has to be deleted.</div></div></div>
+  </div>
+  <div class="prose rv" style="max-width:840px;margin-top:26px">
 
     <p>All of this rests on normalisation against the same predefined fuzzy set, which brings every variable in the model onto one scale: full members of a set are assigned 1, definite non-members 0, and everything in between a partial degree. That normalisation needs two cut-off points, a high cut and a low cut, for the dependent variable and for every explanatory variable.</p>
 
